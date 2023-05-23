@@ -45,14 +45,18 @@ while True:
             pygame.quit()
             exit()
 
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_w and fox_b_rect.bottom >= 800:
+                fox_b_gravity = -12
+            if event.key == pygame.K_UP and fox_r_rect.bottom >= 800:
+                fox_r_gravity = -12
+
     # Movimento da raposa azul
     pressed_key = pygame.key.get_pressed()
     if pressed_key[K_a]:
         fox_b_rect.x -= fox_b_speed
     if pressed_key[K_d]:
         fox_b_rect.x += fox_b_speed
-    if pressed_key[K_w]:
-        fox_b_gravity -= 1
 
     # Movimento da raposa vermelha
     pressed_key = pygame.key.get_pressed()
@@ -60,16 +64,24 @@ while True:
         fox_r_rect.x -= fox_r_speed
     if pressed_key[K_RIGHT]:
         fox_r_rect.x += fox_r_speed
-    if pressed_key[K_UP]:
-        fox_r_gravity -= 1
 
     # Desenha o background
     screen.blit(background, (0, 0))
 
     # Desenha a raposa azul
+    fox_b_gravity += 0.5
+    fox_b_rect.y += fox_b_gravity
+    if fox_b_rect.bottom >= 800:
+        fox_b_rect.bottom = 800
+
     screen.blit(fox_b, fox_b_rect)
 
     # Desenha a raposa vermelha
+    fox_r_gravity += 0.5
+    fox_r_rect.y += fox_r_gravity
+    if fox_r_rect.bottom >= 800:
+        fox_r_rect.bottom = 800
+
     screen.blit(fox_r, fox_r_rect)
 
     # Atualiza a tela
