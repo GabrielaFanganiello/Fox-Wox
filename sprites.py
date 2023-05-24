@@ -1,6 +1,6 @@
 import random
 import pygame
-from pygame.sprite import _Group
+from pygame.sprite import Group
 from config import *
 from assets import *
 
