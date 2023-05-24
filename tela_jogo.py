@@ -44,13 +44,14 @@ def tela_jogo(screen):
             if state == PLAYING:
                 # Verifica se apertou alguma tecla.
                 if event.type == pygame.KEYDOWN:
-                    
-                    if event.key == pygame.K_w:
-                        wox.gravity = -12
-                    if event.key == pygame.K_UP:
-                        fox.gravity = -12
 
                     keys_down[event.key] = True
+
+                    if event.key == pygame.K_w:
+                        wox.speedy -= 8
+
+                    if event.key == pygame.K_UP:
+                        fox.speedy -= 8
 
                     if event.key == pygame.K_LEFT:
                         fox.speedx -= 8
@@ -65,6 +66,12 @@ def tela_jogo(screen):
                 if event.type == pygame.KEYUP:
                     # Dependendo da tecla, altera a velocidade.
                     if event.key in keys_down and keys_down[event.key]:
+                        if event.key == pygame.K_w:
+                            wox.gravity += 8
+
+                        if event.key == pygame.K_UP:
+                            fox.gravity += 8
+
                         if event.key == pygame.K_LEFT:
                             fox.speedx += 8
                         if event.key == pygame.K_RIGHT:

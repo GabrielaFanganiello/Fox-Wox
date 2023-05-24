@@ -15,13 +15,16 @@ class Fox(pygame.sprite.Sprite):
         self.rect.centerx = LARG - 100
         self.rect.bottom = ALT
         self.speedx = 0
+        self.speedy = 0
         self.gravity = 0
         self.groups = groups
         self.assets = assets
 
     def update(self):
-        # Atualização da posição da nave
+        # Atualização da posição da raposa
         self.rect.x += self.speedx
+        self.rect.y += self.speedy 
+        self.rect.y += self.gravity
 
         # Mantem dentro da tela
         if self.rect.right > LARG:
@@ -40,13 +43,16 @@ class Wox(pygame.sprite.Sprite):
         self.rect.centerx = LARG - 100
         self.rect.bottom = ALT
         self.speedx = 0
+        self.speedy = 0
         self.gravity = 0
         self.groups = groups
         self.assets = assets
 
     def update(self):
-        # Atualização da posição da nave
+        # Atualização da posição da raposa
         self.rect.x += self.speedx
+        self.rect.y += self.speedy
+        self.rect.y += self.gravity
 
         # Mantem dentro da tela
         if self.rect.right > LARG:
