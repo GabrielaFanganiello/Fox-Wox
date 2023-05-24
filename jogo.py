@@ -10,7 +10,7 @@ pygame.mixer.init()
 
 # ----- Gera tela principal
 screen = pygame.display.set_mode((LARG, ALT))
-pygame.display.set_caption('Navinha')
+pygame.display.set_caption('FOX & WOX')
 
 state = INIT
 while state != QUIT:

@@ -14,3 +14,5 @@ def load_assets():
     assets[FOX_B] = pygame.transform.scale(assets['raposa_azul'], (100, 100))
     assets[FOX_R] = pygame.image.load(os.path.join(PERSONAGENS, 'raposa_v_frente', 'tile000.png')).convert_alpha()
     assets[FOX_R] = pygame.transform.scale(assets['raposa_vermelha'], (100, 100))
+
+    return assets

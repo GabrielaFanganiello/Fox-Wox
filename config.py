@@ -7,8 +7,8 @@ SONS = path.join(path.dirname(__file__), 'assets', 'snd')
 FONTES = path.join(path.dirname(__file__), 'assets', 'font')
 
 # Dados gerais do jogo.
-LARG = 1600 # Largura da tela
-ALT = 800 # Altura da tela
+LARG = 1200 # Largura da tela
+ALT = 600 # Altura da tela
 FPS = 60 # Frames por segundo
 
 # Define algumas variáveis com as cores básicas

@@ -12,9 +12,9 @@ class Fox(pygame.sprite.Sprite):
         self.image = assets[FOX_R]
         self.mask = pygame.mask.from_surface(self.image)
         self.rect = self.image.get_rect()
-        self.rect.centerx = LARG - 200
+        self.rect.centerx = LARG - 100
         self.rect.bottom = ALT
-        self.speedx = 4
+        self.speedx = 0
         self.gravity = 0
         self.groups = groups
         self.assets = assets
@@ -37,9 +37,9 @@ class Wox(pygame.sprite.Sprite):
         self.image = assets[FOX_B]
         self.mask = pygame.mask.from_surface(self.image)
         self.rect = self.image.get_rect()
-        self.rect.centerx = LARG - 200
+        self.rect.centerx = LARG - 100
         self.rect.bottom = ALT
-        self.speedx = 4
+        self.speedx = 0
         self.gravity = 0
         self.groups = groups
         self.assets = assets
