@@ -67,10 +67,13 @@ def tela_jogo(screen):
                     # Dependendo da tecla, altera a velocidade.
                     if event.key in keys_down and keys_down[event.key]:
                         if event.key == pygame.K_w:
-                            wox.gravity += 8
+                            wox.gravity += 16
+                            wox.gravity = 16
 
                         if event.key == pygame.K_UP:
-                            fox.gravity += 8
+                            fox.gravity += 16
+                            fox.gravity = 16
+
 
                         if event.key == pygame.K_LEFT:
                             fox.speedx += 8
@@ -80,6 +83,8 @@ def tela_jogo(screen):
                             wox.speedx += 8
                         if event.key == pygame.K_d:
                             wox.speedx -= 8
+
+                        
 
         # ----- Atualiza estado do jogo
         all_sprites.update()

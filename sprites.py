@@ -32,6 +32,12 @@ class Fox(pygame.sprite.Sprite):
         if self.rect.left < 0:
             self.rect.left = 0
 
+        if self.rect.bottom > ALT:
+            self.rect.bottom = ALT
+
+        if self.rect.top < 0:
+            self.rect.top = 0
+
 class Wox(pygame.sprite.Sprite):
     def __init__(self, groups, assets):
         # Construtor da classe mãe (Sprite).
@@ -59,3 +65,9 @@ class Wox(pygame.sprite.Sprite):
             self.rect.right = LARG
         if self.rect.left < 0:
             self.rect.left = 0
+
+        if self.rect.bottom > ALT:
+            self.rect.bottom = ALT
+            
+        if self.rect.top < 0:
+                self.rect.top = 0
