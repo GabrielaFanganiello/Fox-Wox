@@ -54,10 +54,6 @@ def tela_inicial(screen):
                 state = QUIT
                 running = False
 
-            if event.type == pygame.KEYUP:
-                state = GAME
-                running = False
-            
             if event.type == pygame.MOUSEBUTTONDOWN:
                 for btn in all_buttons:
                     if btn == botao_jogo:   # Se o botão de JOGO for clicado, vai para a tela do jogo

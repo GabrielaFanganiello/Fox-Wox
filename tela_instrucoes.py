@@ -1,7 +1,6 @@
 import pygame
 import random
 from os import path
-from sprites import Botao
 from config import *
 from assets import *
 
@@ -11,6 +10,9 @@ def tela_instrucoes(screen):
 
     assets = load_assets()
 
+    # Carrega o fundo da tela inicial
+    instrucoes = assets[INSTRU]
+    instrucoes_rect = instrucoes.get_rect()
 
     running = True
     while running:
@@ -25,13 +27,13 @@ def tela_instrucoes(screen):
                 state = QUIT
                 running = False
 
-            if event.type == pygame.KEYDOWN:
-                state = GAME
+            if event.type == pygame.KEYUP:
+                state = INIT
                 running = False
 
-        
-        # A cada loop, redesenha o fundo
-        screen.blit(assets[INSTRUCOES], (-30,0))
+        # A cada loop, redesenha o fundo e os sprites
+        screen.fill(PRETO)
+        screen.blit(instrucoes, instrucoes_rect)
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()

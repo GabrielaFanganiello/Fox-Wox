@@ -12,21 +12,6 @@ def tela_gameover(screen):
 
     assets = load_assets()
 
-    running = True
-    while running:
-
-        # Ajusta a velocidade do jogo.
-        clock.tick(FPS)
-
-        # Processa os eventos (mouse, teclado, botão, etc).
-        for event in pygame.event.get():
-            # Verifica se foi fechado.
-            if event.type == pygame.QUIT:
-                state = QUIT
-                running = False
-        
-        assets = load_assets()
-
     # Criando botoes
     all_buttons = pygame.sprite.Group()
 
@@ -113,7 +98,5 @@ def tela_gameover(screen):
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
-
-    state = QUIT
 
     return state

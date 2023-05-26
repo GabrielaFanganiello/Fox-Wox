@@ -11,6 +11,7 @@ FOX_B_D = 'azul_direita'
 FOX_R_E  = 'vermelha_esquerda'
 FOX_R_D = 'vermelha_direita'
 PONT = 'pontuacao'
+INSTRU = 'instrucoes'
 
 # TILES
 # Chao vermelho
@@ -90,7 +91,7 @@ def load_assets():
 
     # Fundo
     assets[BACKGROUND] = pygame.image.load(os.path.join(FUNDO, 'background.png')).convert()
-    assets[INSTRUCOES] = pygame.image.load(os.path.join(FUNDO, 'Instrucoes.png')).convert()
+    assets[INSTRU] = pygame.image.load(os.path.join(FUNDO, 'Instrucoes.png')).convert()
 
 
     # Carregando imagens da raposa azul
