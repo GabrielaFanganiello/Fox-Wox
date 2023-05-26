@@ -16,6 +16,8 @@ state = INIT
 while state != QUIT:
     if state == INIT:
         state = tela_jogo(screen)
+        with open('dados_pontuacao.txt', 'a') as arquivo:
+            arquivo.write('{0}\n'.format(score))
     else:
         state = QUIT
 

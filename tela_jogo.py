@@ -84,7 +84,6 @@ def tela_jogo(screen):
                         if event.key == pygame.K_d:
                             wox.speedx -= 8
 
-                        
 
         # ----- Atualiza estado do jogo
         all_sprites.update()
