@@ -18,6 +18,8 @@ while state != QUIT:
         state = tela_inicial(window)
     elif state == GAME:
         state = tela_jogo(window)
+    elif state == INSTRUCOES:
+        state = tela_instrucoes(window)
     else:
         state = QUIT
 

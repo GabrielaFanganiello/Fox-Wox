@@ -89,7 +89,7 @@ def tela_inicial(screen):
             text_rect.centery = btn.rect.centery
             screen.blit(btn_texto, text_rect)
 
-        tela_texto = assets['font_media'].render("FOX WOX", True, BRANCO)
+        tela_texto = assets['font_media'].render("FOX & WOX", True, BRANCO)
         text_rect = tela_texto.get_rect()
         text_rect.centerx = LARG / 2
         text_rect.centery = 200
