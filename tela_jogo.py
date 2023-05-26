@@ -29,6 +29,7 @@ def tela_jogo(screen):
     DONE = 0
     PLAYING = 1
     DYING = 2
+
     state = PLAYING
 
     keys_down = {}
@@ -55,7 +56,7 @@ def tela_jogo(screen):
 
                     # Verifica qual tecla foi apertada, comandos raposa azul.
                     if event.key == pygame.K_w:
-                        wox.jump()
+                        wox.speedy = -15
                     if event.key == pygame.K_a:
                         wox.speedx -= VELO_X
                     if event.key == pygame.K_d:
@@ -63,7 +64,7 @@ def tela_jogo(screen):
 
                     # Verifica qual tecla foi apertada, comandos raposa vermelha.
                     elif event.key == pygame.K_UP:
-                        fox.jump()
+                        fox.speedy = -15
                     if event.key == pygame.K_LEFT:
                         fox.speedx -= VELO_X
                     if event.key == pygame.K_RIGHT:
@@ -93,9 +94,10 @@ def tela_jogo(screen):
         # ----- Gera saídas
         screen.fill(PRETO)  # Preenche com a cor preto
         screen.blit(assets[BACKGROUND], (0, 0))
-        # Desenhando meteoros
+
+        # Desenhando os personagens
         all_sprites.draw(screen)
 
-        pygame.display.update()  # Mostra o novo frame para o jogador
+        pygame.display.update()
 
 

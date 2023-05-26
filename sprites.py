@@ -14,19 +14,16 @@ class Fox(pygame.sprite.Sprite):
         # Construtor da classe mãe (Sprite).
         pygame.sprite.Sprite.__init__(self)
 
-        self.state = STILL
         self.image = assets[FOX_R]
         self.mask = pygame.mask.from_surface(self.image)
         self.rect = self.image.get_rect()
-        self.rect.centerx = LARG - 100
-        self.rect.bottom = ALT
         self.speedx = 0
         self.speedy = 0
         self.groups = groups
         self.assets = assets
 
     def update(self):
-        # Atualização da posição da raposa
+        ## Atualização da posição da raposa
 
         # Tentando saltar / andar no eixo y
         self.speedy += GRAVITY
@@ -49,7 +46,7 @@ class Fox(pygame.sprite.Sprite):
             self.rect.bottom = ALT
         if self.rect.top < 0:
             self.rect.top = 0
-
+        
     def jump(self):
         if self.state == STILL:
             self.speedy -= PULO
@@ -64,15 +61,13 @@ class Wox(pygame.sprite.Sprite):
         self.image = assets[FOX_B]
         self.mask = pygame.mask.from_surface(self.image)
         self.rect = self.image.get_rect()
-        self.rect.centerx = 100
-        self.rect.bottom = ALT
         self.speedx = 0
         self.speedy = 0
         self.groups = groups
         self.assets = assets
 
     def update(self):
-        # Atualização da posição da raposa
+        ## Atualização da posição da raposa
 
         # Tentando saltar / andar no eixo y
         self.speedy += GRAVITY
@@ -90,6 +85,16 @@ class Wox(pygame.sprite.Sprite):
             self.rect.right = LARG
         if self.rect.left < 0:
             self.rect.left = 0
+
+        if self.rect.bottom > ALT:
+            self.rect.bottom = ALT
+        if self.rect.top < 0:
+            self.rect.top = 0
+        
+    def jump(self):
+        if self.state == STILL:
+            self.speedy -= PULO
+            self.state = JUMPING
 
 class Botao(pygame.sprite.Sprite):
     def __init__(self, assets, nome_do_jogo):
@@ -119,9 +124,3 @@ class Botao(pygame.sprite.Sprite):
             self.rect.bottom = ALT
         if self.rect.top < 0:
             self.rect.top = 0
-
-
-    def jump(self):
-        if self.state == STILL:
-            self.speedy -= PULO
-            self.state = JUMPING

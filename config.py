@@ -8,13 +8,13 @@ FUNDO = path.join(path.dirname(__file__), 'assets', 'img')
 BOTAO = path.join(path.dirname(__file__), 'assets', 'img', 'botao')
 
 # Dados gerais do jogo.
-LARG = 1200 # Largura da tela
-ALT = 600 # Altura da tela
-FPS = 60 # Frames por segundo
-GRAVITY = 5 # Gravidade
-BLOCO = 20 # ALTERAR TAMANHO DO BLOCO CONFORME MAPA
-PULO = BLOCO # Altura do pulo do personagem
-VELO_X = 8 # Velocidade no eixo x
+LARG = 1200                 # Largura da tela
+ALT = 600                   # Altura da tela
+FPS = 60                    # Frames por segundo
+GRAVITY = 0.8               # Gravidade
+BLOCO = 20                  # Alterar tamanho do mapa conforme mapa !!!!
+PULO = BLOCO                # Altura do pulo do personagem
+VELO_X = 5                  # Velocidade no eixo x
 
 # Define algumas variáveis com as cores básicas
 BRANCO = (255, 255, 255)

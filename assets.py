@@ -14,22 +14,26 @@ FOX_R_D = 'vermelha_direita'
 def load_assets():
     assets = {}
 
-    #pegando imagem do botão normal
+    # Pegando imagem do botão normal
     assets['btn'] = pygame.image.load(os.path.join(BOTAO, 'btn1.png')).convert()
     
-    #mudando tamanho dos botoes
+    # Mudando tamanho dos botões
     largura = assets['btn'].get_rect().width * .5
     altura = assets['btn'].get_rect().height * .25
     assets['btn'] = pygame.transform.scale(assets['btn'], (largura, altura))
 
-    #pegando imagem do botão com mouse em cima
+    # Pegando imagem do botão com mouse em cima
     assets['btn_hover'] = pygame.image.load(os.path.join(BOTAO, 'btn1_hover.png')).convert()
     assets['btn_hover'] = pygame.transform.scale(assets['btn_hover'], (largura, altura))
 
-    #carregando Fonte
+    # Carregando Fonte
     assets['font'] = pygame.font.Font(os.path.join(FONTES,'PressStart2P.ttf'), 22)
     assets['font_media'] = pygame.font.Font(os.path.join(FONTES, 'PressStart2P.ttf'), 30)
+
+    # Fundo
     assets[BACKGROUND] = pygame.image.load(os.path.join(FUNDO, 'background.png')).convert()
+
+    # Carregando imagens da raposa azul
     assets[FOX_B] = pygame.image.load(os.path.join(PERSONAGENS, 'raposa_a_frente', 'tile000.png')).convert_alpha()
     assets[FOX_B] = pygame.transform.scale(assets['raposa_azul'], (100, 100))
     assets[FOX_B_E] = pygame.image.load(os.path.join(PERSONAGENS, 'raposa_a_esquerda', 'tile000.png')).convert_alpha()
@@ -37,6 +41,7 @@ def load_assets():
     assets[FOX_B_D] = pygame.image.load(os.path.join(PERSONAGENS, 'raposa_a_direita', 'tile000.png')).convert_alpha()
     assets[FOX_B_D] = pygame.transform.scale(assets['azul_direita'], (100, 100))
 
+    # Carregando imagens da raposa vermelha
     assets[FOX_R] = pygame.image.load(os.path.join(PERSONAGENS, 'raposa_v_frente', 'tile000.png')).convert_alpha()
     assets[FOX_R] = pygame.transform.scale(assets['raposa_vermelha'], (100, 100))
     assets[FOX_R_E] = pygame.image.load(os.path.join(PERSONAGENS, 'raposa_v_esquerda', 'tile000.png')).convert_alpha()
