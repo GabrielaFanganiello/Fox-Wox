@@ -86,7 +86,8 @@ def tela_jogo(screen):
                             wox.speedx += VELO_X
                         if event.key == pygame.K_d:
                             wox.speedx -= VELO_X
-
+            if state == DYING:
+                state = GAMEOVER
 
         # ----- Atualiza estado do jogo
         all_sprites.update()
