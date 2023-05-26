@@ -31,9 +31,9 @@ def tela_pontuacao(screen):
             
         screen.blit(assets[BACKGROUND], (0,0))
 
-        tela_titulo = assets['font_media'].render("", True, BRANCO)
+        tela_titulo = assets['font_media'].render("Pontuação", True, BRANCO)
         text_rect = tela_titulo.get_rect()
-        text_rect.centerx = LARG / 4
+        text_rect.centerx = LARG / 2
         text_rect.centery = 100
         screen.blit(tela_titulo, text_rect)
 
