@@ -34,16 +34,7 @@ def tela_jogo(screen):
             tile = Tile(assets[tile_type], row, column)
             tiles.add(tile)
 
-    # Definindo possíveis estados dos jogadores
-    DONE = 0
-    PLAYING = 1
-    DYING = 2
-    GAMEOVER = 3
-    PONTUACAO = 4
-    QUIT = 5
-
     state = PLAYING
-
     keys_down = {}
     tempo_segundos = 0
     timer = 0
