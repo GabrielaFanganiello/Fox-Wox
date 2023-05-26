@@ -25,7 +25,7 @@ def tela_instrucoes(screen):
                 state = QUIT
                 running = False
 
-            if event.type == pygame.KEYUP:
+            if event.type == pygame.KEYDOWN:
                 state = GAME
                 running = False
 
@@ -39,11 +39,11 @@ def tela_instrucoes(screen):
         text_rect.centery = 100
         screen.blit(tela_titulo, text_rect)
 
-        tela_rap_a = assets['font_media'].render("Raposa azul: WASD", True, BRANCO)
-        text_rect = tela_rap_a.get_rect()
-        text_rect.centerx = LARG / 4
-        text_rect.centery = 300
-        screen.blit(tela_rap_a, text_rect)
+        tela_texto = assets['font_media'].render("Clique qualquer tecla para jogar", True, BRANCO)
+        text_rect = tela_texto.get_rect()
+        text_rect.centerx = 2 * LARG / 4
+        text_rect.centery = 400
+        screen.blit(tela_texto, text_rect)
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()

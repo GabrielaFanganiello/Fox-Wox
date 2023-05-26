@@ -64,12 +64,12 @@ def tela_inicial(screen):
             
             if event.type == pygame.MOUSEBUTTONDOWN:
                 for btn in all_buttons:
-                    if btn == botao_jogo:
+                    if btn == botao_jogo:   # Se o botão de JOGO for clicado, vai para a tela do jogo
                         if btn.rect.collidepoint(event.pos):
                                 state = GAME
                                 running = False
-                    if btn == botao_instrucoes:
-                        if btn.rect.collidepoint(event.pos):
+                    if btn == botao_instrucoes:  # Se o botão de INSTRUÇÕES for clicado, vai para a tela de Instruções
+                        if btn.rect.collidepoint(event.pos):  
                                 state = INSTRUCOES
                                 running = False
 
@@ -82,7 +82,7 @@ def tela_inicial(screen):
                         btn.mouse_over(False)
             
 
-        # A cada loop, redesenha o fundo e os sprites
+        # A cada loop, redesenha o fundo e os botões
         screen.blit(assets[BACKGROUND], (0,0))
         all_buttons.draw(screen)
 
@@ -94,6 +94,7 @@ def tela_inicial(screen):
             text_rect.centery = btn.rect.centery
             screen.blit(btn_texto, text_rect)
 
+        # Escrevendo o texto da tela
         tela_texto = assets['font_media'].render("FOX & WOX", True, BRANCO)
         text_rect = tela_texto.get_rect()
         text_rect.centerx = LARG / 2
