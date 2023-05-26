@@ -31,19 +31,19 @@ def tela_inicial(screen):
     # Criando primeira fileira com 4 botões
     for i in range(2):
         if i == 0:
-            jogo = Botao(assets, "Jogo")
+            botao_jogo = Botao(assets, "Jogo")
 
-            jogo.rect.x = LARG / 5
-            jogo.rect.centery = y
-            all_buttons.add(jogo)
+            botao_jogo.rect.x = LARG / 5
+            botao_jogo.rect.centery = y
+            all_buttons.add(botao_jogo)
 
-            x+= jogo.rect.width + espacamento
+            x+= botao_jogo.rect.width + espacamento
         else:
-            jogo = Botao(assets, "Instruções")
+            botao_instrucoes = Botao(assets, "Instruções")
 
-            jogo.rect.x = LARG / 2
-            jogo.rect.centery = y
-            all_buttons.add(jogo)
+            botao_instrucoes.rect.x = LARG / 2
+            botao_instrucoes.rect.centery = y
+            all_buttons.add(botao_instrucoes)
     
     running = True
     while running:
@@ -64,9 +64,14 @@ def tela_inicial(screen):
             
             if event.type == pygame.MOUSEBUTTONDOWN:
                 for btn in all_buttons:
-                    if btn.rect.collidepoint(event.pos):
-                        state = GAME
-                        running = False
+                    if btn == botao_jogo:
+                        if btn.rect.collidepoint(event.pos):
+                                state = GAME
+                                running = False
+                    if btn == botao_instrucoes:
+                        if btn.rect.collidepoint(event.pos):
+                                state = INSTRUCOES
+                                running = False
 
             if event.type == pygame.MOUSEMOTION:
                 #Alterando cor do botão
