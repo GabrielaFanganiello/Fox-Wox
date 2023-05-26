@@ -14,6 +14,8 @@ class Fox(pygame.sprite.Sprite):
         # Construtor da classe mãe (Sprite).
         pygame.sprite.Sprite.__init__(self)
 
+        self.state = STILL
+
         self.image = assets[FOX_R]
         self.mask = pygame.mask.from_surface(self.image)
         self.rect = self.image.get_rect()
