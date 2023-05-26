@@ -10,6 +10,10 @@ FONTES = path.join(path.dirname(__file__), 'assets', 'font')
 LARG = 1200 # Largura da tela
 ALT = 600 # Altura da tela
 FPS = 60 # Frames por segundo
+GRAVITY = 5 # Gravidade
+BLOCO = 20 # ALTERAR TAMANHO DO BLOCO CONFORME MAPA
+PULO = BLOCO # Altura do pulo do personagem
+VELO_X = 8 # Velocidade no eixo x
 
 # Define algumas variáveis com as cores básicas
 BRANCO = (255, 255, 255)
