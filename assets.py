@@ -120,7 +120,7 @@ def load_assets():
     assets[9] = pygame.image.load(path.join(TILES, 'GRAMA_T.png')).convert()
     assets[10] = pygame.image.load(path.join(TILES, 'GRAMA_TL.png')).convert()
     assets[11] = pygame.image.load(path.join(TILES, 'GRAMA_TR.png')).convert()
-    assets[12] = pygame.image.load(path.join(TILES, '')).convert()
+    # assets[12] = pygame.image.load(path.join(TILES, '')).convert()
 
     
     return assets
