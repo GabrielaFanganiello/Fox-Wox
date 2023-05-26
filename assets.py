@@ -33,6 +33,8 @@ def load_assets():
 
     # Fundo
     assets[BACKGROUND] = pygame.image.load(os.path.join(FUNDO, 'background.png')).convert()
+    assets[INSTRUCOES] = pygame.image.load(os.path.join(FUNDO, 'Instrucoes.png')).convert()
+
 
     # Carregando imagens da raposa azul
     assets[FOX_B] = pygame.image.load(os.path.join(PERSONAGENS, 'raposa_a_frente', 'tile000.png')).convert_alpha()
