@@ -92,36 +92,36 @@ from sprites import *
 #     clock.tick(60)
 
 
-def tela_jogo(screen):
+#def tela_jogo(screen):
     # Variável para o ajuste de velocidade
-    clock = pygame.time.Clock()
+    #clock = pygame.time.Clock()
 
-    assets = load_assets()
+    #assets = load_assets()
 
     # Criando um grupo de meteoros
-    all_sprites = pygame.sprite.Group()
-    all_raposas = pygame.sprite.Group()
-    groups = {}
-    groups['all_sprites'] = all_sprites
-    groups['raposas'] = all_raposas
+    #all_sprites = pygame.sprite.Group()
+    #all_raposas = pygame.sprite.Group()
+  #  groups = {}
+   # groups['all_sprites'] = all_sprites
+    #groups['raposas'] = all_raposas
 
     # Criando a raposa vermelha
-    fox = Fox(groups, assets)
-    all_sprites.add(fox)
+    #fox = Fox(groups, assets)
+   ## all_sprites.add(fox)
 
     # Criando a raposa azul
-    wox = Wox(groups, assets)
-    all_sprites.add(wox)
+    #wox = Wox(groups, assets)
+    #all_sprites.add(wox)
 
 
-    DONE = 0
-    PLAYING = 1
-    EXPLODING = 2
-    state = PLAYING
+    #DONE = 0
+    #PLAYING = 1
+    #EXPLODING = 2
+    #state = PLAYING
 
-    keys_down = {}
-    score = 0
-    lives = 3
+    #keys_down = {}
+    #score = 0
+    #lives = 3
 
     # # ===== Loop principal =====
     # pygame.mixer.music.play(loops=-1)
@@ -219,3 +219,30 @@ def tela_jogo(screen):
     #     window.blit(text_surface, text_rect)
 
     #     pygame.display.update()  # Mostra o novo frame para o jogador
+
+
+
+
+# ===== Inicialização =====
+# ----- Importa e inicia pacotes
+import pygame
+import random
+from config import LARG, ALT, INIT, QUIT
+from tela_inicial import tela_inicial
+
+pygame.init()
+pygame.mixer.init()
+
+# ----- Gera tela principal
+window = pygame.display.set_mode((LARG, ALT))
+pygame.display.set_caption('FOX WOX')
+
+state = INIT
+while state != QUIT:
+    if state == INIT:
+        state = tela_inicial(window)
+    else:
+        state = QUIT
+
+# ===== Finalização =====
+pygame.quit()  # Função do PyGame que finaliza os recursos utilizados

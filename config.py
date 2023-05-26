@@ -2,8 +2,7 @@ from os import path
 
 # Estabelece a pasta que contem as figuras e sons.
 IMAGENS = path.join(path.dirname(__file__), 'assets', 'img')
-SONS = path.join(path.dirname(__file__), 'assets', 'snd')
-FONTES = path.join(path.dirname(__file__), 'assets', 'font')
+FONTE =  path.join(path.dirname(__file__), 'assets', 'fonte')
 
 # Dados gerais do jogo.
 LARG = 1600 # Largura da tela

@@ -1,86 +1,95 @@
 import pygame
+import random
+from os import path
+from sprites import Botao
+from config import *
+from assets import *
 
-def desenha_texto_no_centro(window, fonte, texto, cor, delta_y=0):
-    img_texto = fonte.render(texto, True, cor)
-    # Queremos centralizar o texto e sabemos as dimensões da janela e do texto
-    texto_x = int(window.get_width() / 2 - img_texto.get_width() / 2)
-    texto_y = int(window.get_height() / 2 - img_texto.get_height() / 2)
+def tela_inicial(screen):
+    # Variável para o ajuste de velocidade
+    clock = pygame.time.Clock()
+    assets = load_assets()
+    # Criando botoes
+    all_buttons = pygame.sprite.Group()
 
-    window.blit(img_texto, (texto_x, texto_y))
+    # Calculando espaçamento entre os botões
+    # Criando um botão apenas para pegar as medidas de um botão para realizar o calculo
+    medidas_botao = Botao(assets, '')
+    # O espaçamento é feito através da largura da janela menos o 
+    # espaço necessário para posicionar 4 botões
+    # depois é calculado o tamanho para 5 espaços vazios
+    espacamento = (LARG - (medidas_botao.rect.width * 4))/ 5
+    x = espacamento
+    y = ALT /2
 
-class TelaInicial:
-    def __init__(self):
-        default_font_name = pygame.font.get_default_font()
-        self.font = pygame.font.Font(default_font_name, 24)
+    # Criando primeira fileira com 4 botões
+    for i in range(2):
+        if i == 0:
+            jogo = Botao(assets, "Jogo")
 
-        # Poderíamos ter um self.state com um dicionário
-        # Mas vamos utilizar somente uma variável
-        self.texto_dy = 0
-        self.texto_vy = 20  # pixels/segundo
+            jogo.rect.x = LARG / 5
+            jogo.rect.centery = y
+            all_buttons.add(jogo)
 
-    # Agora a função atualiza devolve uma string com o nome da próxima tela.
-    # Se não for mudar de tela, devolve o nome da própria tela.
-    def atualiza(self, dt):
+            x+= jogo.rect.width + espacamento
+        else:
+            jogo = Botao(assets, "Instrucoes")
+
+            jogo.rect.x = LARG / 2
+            jogo.rect.centery = y
+            all_buttons.add(jogo)
+    
+    running = True
+    while running:
+
+        # Ajusta a velocidade do jogo.
+        clock.tick(FPS)
+
+        # Processa os eventos (mouse, teclado, botão, etc).
         for event in pygame.event.get():
+            # Verifica se foi fechado.
             if event.type == pygame.QUIT:
-                return None  # Devolve None para sair
-            elif event.type == pygame.KEYDOWN:
-                return Tela1()
+                state = QUIT
+                running = False
 
-        self.texto_dy += self.texto_vy * dt
-        if abs(self.texto_dy) > 20:
-            self.texto_vy *= -1
-            # Truque para garantir que nunca vai sair do intervalo [-20, 20]
-            sinal = self.texto_dy / abs(self.texto_dy)
-            self.texto_dy = sinal * 20
+            if event.type == pygame.KEYUP:
+                state = GAME
+                running = False
+            
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                for btn in all_buttons:
+                    if btn.rect.collidepoint(event.pos):
+                        state = GAME
+                        running = False
 
-        # Devolve a própria tela para continuar nela
-        return self
+            if event.type == pygame.MOUSEMOTION:
+                #Alterando cor do botão
+                for btn in all_buttons:
+                    if btn.rect.collidepoint(event.pos):
+                        btn.mouse_over(True)
+                    else:
+                        btn.mouse_over(False)
+            
 
-    def desenha(self, window):
-        background = pygame.image.load('assets/sprites/background/background.png').convert()
-        background_rect = background.get_rect()
-        window.fill((255, 255, 255))
-        window.blit(background, background_rect)
-        desenha_texto_no_centro(window, self.font, 'FOX WOX', (255, 255, 255), self.texto_dy)
-        # Note que não chamamos o pygame.display.update aqui. Deixamos ele para ser chamado fora da função.
+        # A cada loop, redesenha o fundo e os sprites
+        screen.blit(assets[BACKGROUND], (0,0))
+        all_buttons.draw(screen)
 
-# Classe do jogo
-class Jogo:
-    def __init__(self):
-        pygame.init()
-        self.window = pygame.display.set_mode((1600, 800))
-        pygame.display.set_caption('Telas com classes')
+        # Escrevendo texto dos botões
+        for btn in all_buttons:
+            btn_texto = assets['font'].render(f"{btn.nome_do_jogo}", True, BRANCO)
+            text_rect = btn_texto.get_rect()
+            text_rect.centerx = btn.rect.centerx
+            text_rect.centery = btn.rect.centery
+            screen.blit(btn_texto, text_rect)
 
-        self.tela_atual = TelaInicial()
-        self.last_updated = pygame.time.get_ticks()
+        tela_texto = assets['font_media'].render("FOX WOX", True, BRANCO)
+        text_rect = tela_texto.get_rect()
+        text_rect.centerx = LARG / 2
+        text_rect.centery = 200
+        screen.blit(tela_texto, text_rect)
+        
+        # Depois de desenhar tudo, inverte o display.
+        pygame.display.flip()
 
-    # Devolve True se é para continuar rodando o jogo, False caso contrário
-    def atualiza(self):
-        # Atualiza tempo e calcula delta_t
-        now = pygame.time.get_ticks()
-        delta_t = (now - self.last_updated) / 1000
-        self.last_updated = now
-
-        # O método atualiza de todas as telas precisam receber um argumento delta_t
-        self.tela_atual = self.tela_atual.atualiza(delta_t)
-
-        # Atualiza tela atual
-        if self.tela_atual is None:
-            return False
-        return True
-
-    def game_loop(self):
-        # Note que aqui não precisamos saber qual é a tela_atual
-        while self.atualiza():
-            self.tela_atual.desenha(self.window)
-            pygame.display.update()
-
-    def finaliza(self):
-        pygame.quit()
-
-
-if __name__ == '__main__':
-    jogo = Jogo()
-    jogo.game_loop()
-    jogo.finaliza()
+    return state
