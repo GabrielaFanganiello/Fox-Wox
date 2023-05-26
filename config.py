@@ -1,12 +1,15 @@
 from os import path
 
 # Estabelece a pasta que contem as figuras e sons.
-IMAGENS = path.join(path.dirname(__file__), 'assets', 'img')
-FONTE =  path.join(path.dirname(__file__), 'assets', 'fonte')
+PERSONAGENS = path.join(path.dirname(__file__), 'assets', 'img', 'characters')
+SONS = path.join(path.dirname(__file__), 'assets', 'snd')
+FONTES = path.join(path.dirname(__file__), 'assets', 'fonte')
+FUNDO = path.join(path.dirname(__file__), 'assets', 'img')
+BOTAO = path.join(path.dirname(__file__), 'assets', 'img', 'botao')
 
 # Dados gerais do jogo.
-LARG = 1600 # Largura da tela
-ALT = 800 # Altura da tela
+LARG = 1200 # Largura da tela
+ALT = 600 # Altura da tela
 FPS = 60 # Frames por segundo
 
 # Define algumas variáveis com as cores básicas

@@ -1,20 +1,25 @@
-import pygame
-from pygame.locals import *
-from sys import exit
-from random import randint
-from config import *
-from assets import *
-from sprites import *
+# ===== Inicialização =====
+# ----- Importa e inicia pacotes
+#import pygame
+#import random
+#from config import *
+#from tela_jogo import tela_jogo
 
-# # Inicializando o PyGame
-# pygame.init()
+#pygame.init()
+#pygame.mixer.init()
 
-# # Criando a janela útil do jogo
-# screen = pygame.display.set_mode((1600, 800))
-# pygame.display.set_caption('Fox & Wox')
+# ----- Gera tela principal
+#screen = pygame.display.set_mode((LARG, ALT))
+#pygame.display.set_caption('FOX & WOX')
 
-# # Clock para controlar o FPS
-# clock = pygame.time.Clock()
+#state = INIT
+#while state != QUIT:
+ #   if state == INIT:
+  #      state = tela_jogo(screen)
+   #     with open('dados_pontuacao.txt', 'a') as arquivo:
+    #        arquivo.write('{0}\n'.format(score))
+    #else:
+     #   state = QUIT
 
 # # Variáveis de controle dos personagens
 # fox_r_speed = 4
