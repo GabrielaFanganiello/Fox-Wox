@@ -5,9 +5,9 @@ from config import *
 from assets import *
 
 # Possíveis estados dos jogadores
-STILL = 5
-JUMPING = 6
-FALLING = 7
+STILL = 6
+JUMPING = 7
+FALLING = 8
 
 class Fox(pygame.sprite.Sprite):
     def __init__(self, groups, assets):

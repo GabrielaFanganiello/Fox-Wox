@@ -31,7 +31,7 @@ def tela_instrucoes(screen):
 
         
         # A cada loop, redesenha o fundo
-        screen.blit(assets[INSTRUCOES], (0,0))
+        screen.blit(assets[INSTRUCOES], (-30,0))
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()

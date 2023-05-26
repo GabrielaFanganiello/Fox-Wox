@@ -1,11 +1,12 @@
 # ===== Inicialização =====
 # ----- Importa e inicia pacotes
 import pygame
-from config import LARG, ALT, INIT, QUIT, GAME, INSTRUCOES, GAMEOVER
+from config import LARG, ALT, INIT, QUIT, GAME, INSTRUCOES, GAMEOVER, PONTUACAO
 from tela_inicial import tela_inicial
 from tela_jogo import tela_jogo
 from tela_instrucoes import tela_instrucoes
 from tela_gameover import tela_gameover
+from tela_pontuacao import tela_pontuacao
 
 pygame.init()
 pygame.mixer.init()
@@ -24,6 +25,8 @@ while state != QUIT:
         state = tela_instrucoes(window)
     elif state == GAMEOVER:
         state = tela_gameover(window)
+    elif state == PONTUACAO:
+        state = tela_pontuacao(window)
     else:
         state = QUIT
 
