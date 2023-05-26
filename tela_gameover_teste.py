@@ -4,15 +4,15 @@ from os import path
 from config import *
 from assets import *
 
-def tela_instrucoes(screen):
+def tela_gameover_teste(screen):
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
 
     assets = load_assets()
 
     # Carrega o fundo da tela inicial
-    instrucoes = assets[INSTRU]
-    instrucoes_rect = instrucoes.get_rect()
+    gameover = assets[BACKGROUND]
+    gameover_rect = gameover.get_rect()
 
     running = True
     while running:
@@ -33,7 +33,7 @@ def tela_instrucoes(screen):
 
         # A cada loop, redesenha o fundo e os sprites
         screen.fill(PRETO)
-        screen.blit(instrucoes, instrucoes_rect)
+        screen.blit(gameover, gameover_rect)
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()

@@ -104,15 +104,12 @@ def tela_jogo(screen):
 
         # Verifica se houve colisão entre personagens
         if state == PLAYING:
+
             hit = pygame.sprite.collide_rect(fox, wox)
             if hit:
                 fox.kill()
                 wox.kill()
                 state = GAMEOVER
-
-        # if state == DYING:
-        #     now = pygame.time.get_ticks()
-        #     state = GAMEOVER
 
 
         # ----- Gera saídas

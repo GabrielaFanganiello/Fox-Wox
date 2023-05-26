@@ -29,11 +29,11 @@ def tela_gameover(screen):
     # Criando primeira fileira com 4 botões
     for i in range(2):
         if i == 0:
-            botao_jogo = Botao(assets, "Jogar novamente")
+            botao_jogar_novamente = Botao(assets, "Jogar novamente")
 
-            botao_jogo.rect.centerx = 3*LARG / 10
-            botao_jogo.rect.centery = 2* ALT/3
-            all_buttons.add(botao_jogo)
+            botao_jogar_novamente.rect.centerx = 3*LARG / 10
+            botao_jogar_novamente.rect.centery = 2* ALT/3
+            all_buttons.add(botao_jogar_novamente)
 
         else:
             botao_pontuacao = Botao(assets, "Pontuação")
@@ -54,20 +54,16 @@ def tela_gameover(screen):
             if event.type == pygame.QUIT:
                 state = QUIT
                 running = False
-
-            if event.type == pygame.KEYUP:
-                state = GAME
-                running = False
             
             if event.type == pygame.MOUSEBUTTONDOWN:
                 for btn in all_buttons:
-                    if btn == botao_jogo:   # Se o botão de JOGO for clicado, vai para a tela do jogo
+                    if btn == botao_jogar_novamente:   # Se o botão de JOGO for clicado, vai para a tela do jogo
                         if btn.rect.collidepoint(event.pos):
                                 state = GAME
                                 running = False
                     if btn == botao_pontuacao:  # Se o botão de PONTUACAO for clicado, vai para a tela de pontuacao
                         if btn.rect.collidepoint(event.pos):  
-                                state = PONTUACAO
+                                state = DONE
                                 running = False
 
             if event.type == pygame.MOUSEMOTION:
