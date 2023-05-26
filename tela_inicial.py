@@ -24,25 +24,21 @@ def tela_inicial(screen):
     depois é calculado o tamanho para 5 espaços vazios
     '''
 
-    espacamento = (LARG - (medidas_botao.rect.width * 4))/ 5
-    x = espacamento
-    y = ALT /2
 
     # Criando primeira fileira com 4 botões
     for i in range(2):
         if i == 0:
             botao_jogo = Botao(assets, "Jogo")
 
-            botao_jogo.rect.x = LARG / 5
-            botao_jogo.rect.centery = y
+            botao_jogo.rect.centerx = 3*LARG / 10
+            botao_jogo.rect.centery = 2* ALT/3
             all_buttons.add(botao_jogo)
 
-            x+= botao_jogo.rect.width + espacamento
         else:
             botao_instrucoes = Botao(assets, "Instruções")
 
-            botao_instrucoes.rect.x = LARG / 2
-            botao_instrucoes.rect.centery = y
+            botao_instrucoes.rect.centerx = 7* LARG / 10
+            botao_instrucoes.rect.centery = 2*ALT/3
             all_buttons.add(botao_instrucoes)
     
     running = True
