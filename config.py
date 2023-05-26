@@ -66,9 +66,10 @@ MAP = [
 
 # Estados para controle do fluxo da aplicação
 INIT = 0
-GAME = 1
-INSTRUCOES = 2
-GAMEOVER = 3
-PONTUACAO = 4
-QUIT = 5
-DONE = 6
+PLAYING = 1
+GAME = 2
+INSTRUCOES = 3
+GAMEOVER = 4
+PONTUACAO = 5
+QUIT = 6
+DONE = 7

@@ -20,13 +20,13 @@ state = INIT
 while state != QUIT:
     if state == INIT:
         state = tela_inicial(window)
-    if state == GAME:
+    elif state == GAME:
         state = tela_jogo(window)
-    if state == INSTRUCOES:
+    elif state == INSTRUCOES:
         state = tela_instrucoes(window)
-    if state == GAMEOVER:
+    elif state == GAMEOVER:
         state = tela_gameover(window)
-    if state == PONTUACAO:
+    elif state == PONTUACAO:
         state = tela_pontuacao(window)
     else:
         state = QUIT
