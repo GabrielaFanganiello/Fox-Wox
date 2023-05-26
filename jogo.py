@@ -1,9 +1,10 @@
 # ===== Inicialização =====
 # ----- Importa e inicia pacotes
 import pygame
-from config import LARG, ALT, INIT, QUIT, GAME
+from config import LARG, ALT, INIT, QUIT, GAME, INSTRUCOES
 from tela_inicial import tela_inicial
 from tela_jogo import tela_jogo
+from tela_instrucoes import tela_instrucoes
 
 pygame.init()
 pygame.mixer.init()

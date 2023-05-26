@@ -24,26 +24,22 @@ def tela_inicial(screen):
     depois é calculado o tamanho para 5 espaços vazios
     '''
 
-    espacamento = (LARG - (medidas_botao.rect.width * 4))/ 5
-    x = espacamento
-    y = ALT /2
 
     # Criando primeira fileira com 4 botões
     for i in range(2):
         if i == 0:
-            jogo = Botao(assets, "Jogo")
+            botao_jogo = Botao(assets, "Jogo")
 
-            jogo.rect.x = LARG / 5
-            jogo.rect.centery = y
-            all_buttons.add(jogo)
+            botao_jogo.rect.centerx = 3*LARG / 10
+            botao_jogo.rect.centery = 2* ALT/3
+            all_buttons.add(botao_jogo)
 
-            x+= jogo.rect.width + espacamento
         else:
-            jogo = Botao(assets, "Instruções")
+            botao_instrucoes = Botao(assets, "Instruções")
 
-            jogo.rect.x = LARG / 2
-            jogo.rect.centery = y
-            all_buttons.add(jogo)
+            botao_instrucoes.rect.centerx = 7* LARG / 10
+            botao_instrucoes.rect.centery = 2*ALT/3
+            all_buttons.add(botao_instrucoes)
     
     running = True
     while running:
@@ -64,9 +60,14 @@ def tela_inicial(screen):
             
             if event.type == pygame.MOUSEBUTTONDOWN:
                 for btn in all_buttons:
-                    if btn.rect.collidepoint(event.pos):
-                        state = GAME
-                        running = False
+                    if btn == botao_jogo:   # Se o botão de JOGO for clicado, vai para a tela do jogo
+                        if btn.rect.collidepoint(event.pos):
+                                state = GAME
+                                running = False
+                    if btn == botao_instrucoes:  # Se o botão de INSTRUÇÕES for clicado, vai para a tela de Instruções
+                        if btn.rect.collidepoint(event.pos):  
+                                state = INSTRUCOES
+                                running = False
 
             if event.type == pygame.MOUSEMOTION:
                 #Alterando cor do botão
@@ -77,7 +78,7 @@ def tela_inicial(screen):
                         btn.mouse_over(False)
             
 
-        # A cada loop, redesenha o fundo e os sprites
+        # A cada loop, redesenha o fundo e os botões
         screen.blit(assets[BACKGROUND], (0,0))
         all_buttons.draw(screen)
 
@@ -89,6 +90,7 @@ def tela_inicial(screen):
             text_rect.centery = btn.rect.centery
             screen.blit(btn_texto, text_rect)
 
+        # Escrevendo o texto da tela
         tela_texto = assets['font_media'].render("FOX & WOX", True, BRANCO)
         text_rect = tela_texto.get_rect()
         text_rect.centerx = LARG / 2

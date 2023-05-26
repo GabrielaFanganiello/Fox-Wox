@@ -16,7 +16,7 @@ def load_assets():
     assets = {}
 
     # Pegando imagem do botão normal
-    assets['btn'] = pygame.image.load(os.path.join(BOTAO, 'btn1.png')).convert()
+    assets['btn'] = pygame.image.load(os.path.join(BOTAO, 'btn1.png')).convert_alpha()
     
     # Mudando tamanho dos botões
     largura = assets['btn'].get_rect().width * .5
@@ -24,7 +24,7 @@ def load_assets():
     assets['btn'] = pygame.transform.scale(assets['btn'], (largura, altura))
 
     # Pegando imagem do botão com mouse em cima
-    assets['btn_hover'] = pygame.image.load(os.path.join(BOTAO, 'btn1_hover.png')).convert()
+    assets['btn_hover'] = pygame.image.load(os.path.join(BOTAO, 'btn1_hover.png')).convert_alpha()
     assets['btn_hover'] = pygame.transform.scale(assets['btn_hover'], (largura, altura))
 
     # Carregando Fonte
