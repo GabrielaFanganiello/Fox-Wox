@@ -64,7 +64,7 @@ def tela_jogo(screen):
                     keys_down[event.key] = True
 
                     # Verifica qual tecla foi apertada, comandos raposa azul.
-                    if event.key == pygame.K_w:
+                    if event.key == pygame.K_w and wox.rect.bottom == ALT:
                         wox.speedy = -15
                     if event.key == pygame.K_a:
                         wox.speedx -= VELO_X
@@ -72,7 +72,7 @@ def tela_jogo(screen):
                         wox.speedx += VELO_X
 
                     # Verifica qual tecla foi apertada, comandos raposa vermelha.
-                    elif event.key == pygame.K_UP:
+                    elif event.key == pygame.K_UP and fox.rect.bottom == ALT:
                         fox.speedy = -15
                     if event.key == pygame.K_LEFT:
                         fox.speedx -= VELO_X
