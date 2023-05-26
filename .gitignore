@@ -41,3 +41,6 @@ __pycache__/sprites.cpython-39.pyc
 __pycache__/tela_inicial.cpython-39.pyc
 __pycache__/tela_instrucoes.cpython-39.pyc
 __pycache__/tela_jogo.cpython-39.pyc
+__pycache__/tela_gameover.cpython-311.pyc
+__pycache__/tela_instrucoes.cpython-311.pyc
+__pycache__/tela_pontuacao.cpython-311.pyc

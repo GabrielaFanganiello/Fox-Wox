@@ -4,6 +4,7 @@ from os import path
 from sprites import Botao
 from config import *
 from assets import *
+from tela_jogo import *
 
 
 def tela_pontuacao(screen):
@@ -31,11 +32,20 @@ def tela_pontuacao(screen):
             
         screen.blit(assets[BACKGROUND], (0,0))
 
-        tela_titulo = assets['font_media'].render("Pontuação", True, BRANCO)
-        text_rect = tela_titulo.get_rect()
-        text_rect.centerx = LARG / 2
-        text_rect.centery = 100
-        screen.blit(tela_titulo, text_rect)
+        nome = assets['font_media'].render("NOME: ", True, BRANCO)
+        text_rect = nome.get_rect()
+        text_rect.x = 10
+        text_rect.centery = 10
+        screen.blit(nome, text_rect)
+
+        pontuacao = assets['font_media'].render("PONTUAÇÃO", True, BRANCO)
+        text_rect = pontuacao.get_rect()
+        text_rect.centerx = (LARG / 2) + 10
+        text_rect.centery = 10
+        screen.blit(pontuacao, text_rect)
+
+        dados = assets
+        
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()

@@ -25,6 +25,15 @@ def tela_jogo(screen):
     wox = Wox(groups, assets)
     all_sprites.add(wox)
 
+    # Cria um grupo de tiles.
+    tiles = pygame.sprite.Group()
+    # Cria tiles de acordo com o mapa
+    for row in range(len(MAP)):
+        for column in range(len(MAP[row])):
+            tile_type = MAP[row][column]
+            tile = Tile(assets[tile_type], row, column)
+            tiles.add(tile)
+
     # Definindo possíveis estados dos jogadores
     DONE = 0
     PLAYING = 1
@@ -116,8 +125,7 @@ def tela_jogo(screen):
         screen.blit(tempo, text_rect)
 
         # Desenhando os personagens
+        tiles.draw(screen)
         all_sprites.draw(screen)
 
         pygame.display.update()
-
-
