@@ -234,6 +234,7 @@ import pygame
 import random
 from config import LARG, ALT, INIT, QUIT
 from tela_inicial import tela_inicial
+from tela_jogo import tela_jogo
 
 pygame.init()
 pygame.mixer.init()
@@ -245,9 +246,7 @@ pygame.display.set_caption('FOX WOX')
 state = INIT
 while state != QUIT:
     if state == INIT:
-        state = tela_jogo(screen)
-        with open('dados_pontuacao.txt', 'a') as arquivo:
-            arquivo.write('{0}\n'.format(score))
+        state = tela_jogo(window)
     else:
         state = QUIT
 
