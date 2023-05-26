@@ -33,11 +33,20 @@ def tela_jogo(screen):
     state = PLAYING
 
     keys_down = {}
-    score = 0
+    tempo_segundos = 0
+    timer = 0
 
     # ===== Loop principal =====
     while state != DONE:
+        
         clock.tick(FPS)
+
+        if timer<60:
+            timer += 1
+
+        else:
+            tempo_segundos += 1
+            timer = 60
 
         # ----- Trata eventos
         for event in pygame.event.get():
@@ -55,7 +64,7 @@ def tela_jogo(screen):
                     keys_down[event.key] = True
 
                     # Verifica qual tecla foi apertada, comandos raposa azul.
-                    if event.key == pygame.K_w and wox.rect.bottom == ALT:
+                    if event.key == pygame.K_w:
                         wox.speedy = -15
                     if event.key == pygame.K_a:
                         wox.speedx -= VELO_X
@@ -63,7 +72,7 @@ def tela_jogo(screen):
                         wox.speedx += VELO_X
 
                     # Verifica qual tecla foi apertada, comandos raposa vermelha.
-                    elif event.key == pygame.K_UP and fox.rect.bottom == ALT:
+                    elif event.key == pygame.K_UP:
                         fox.speedy = -15
                     if event.key == pygame.K_LEFT:
                         fox.speedx -= VELO_X
@@ -93,8 +102,14 @@ def tela_jogo(screen):
         all_sprites.update()
 
         # ----- Gera saídas
-        screen.fill(PRETO)  # Preenche com a cor preto
         screen.blit(assets[BACKGROUND], (0, 0))
+
+        # ----- Posicionando o tempo na tela
+        tempo = assets['font_tempo'].render("Tempo: "+str(tempo_segundos / 100), True, BRANCO)
+        text_rect = tempo.get_rect()
+        text_rect.x = 10
+        text_rect.centery = 20
+        screen.blit(tempo, text_rect)
 
         # Desenhando os personagens
         all_sprites.draw(screen)

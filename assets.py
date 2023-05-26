@@ -30,6 +30,7 @@ def load_assets():
     # Carregando Fonte
     assets['font'] = pygame.font.Font(os.path.join(FONTES,'PressStart2P.ttf'), 22)
     assets['font_media'] = pygame.font.Font(os.path.join(FONTES, 'PressStart2P.ttf'), 30)
+    assets['font_tempo'] = pygame.font.Font(os.path.join(FONTES, 'PressStart2P.ttf'), 20)
 
     # Fundo
     assets[BACKGROUND] = pygame.image.load(os.path.join(FUNDO, 'background.png')).convert()
