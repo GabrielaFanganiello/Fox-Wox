@@ -38,6 +38,9 @@ def tela_jogo(screen):
     DONE = 0
     PLAYING = 1
     DYING = 2
+    GAMEOVER = 3
+    PONTUACAO = 4
+    QUIT = 5
 
     state = PLAYING
 
@@ -105,18 +108,30 @@ def tela_jogo(screen):
                         if event.key == pygame.K_d:
                             wox.speedx -= VELO_X
 
-                hit = pygame.sprite.collide_rect(fox, wox)
-                if hit:
-                    state = GAMEOVER
-
-            if state == DYING:
-                state = GAMEOVER
-
         # ----- Atualiza estado do jogo
         all_sprites.update()
 
+        # Verifica se houve colisão entre personagens
+        if state == PLAYING:
+            hit = pygame.sprite.collide_rect(fox, wox)
+            if hit:
+                fox.kill()
+                wox.kill()
+                state = DYING
+                keys_down = {}
+
+        if state == DYING:
+            now = pygame.time.get_ticks()
+            state = GAMEOVER
+
+
         # ----- Gera saídas
         screen.blit(assets[BACKGROUND], (0, 0))
+
+        # Desenhando os personagens
+        tiles.draw(screen)
+        all_sprites.draw(screen)
+
 
         # ----- Posicionando o tempo na tela
         tempo = assets['font_tempo'].render("Tempo: "+str(tempo_segundos / 100), True, BRANCO)
@@ -125,10 +140,6 @@ def tela_jogo(screen):
         text_rect.centery = 20
         screen.blit(tempo, text_rect)
 
-        # Desenhando os personagens
-        tiles.draw(screen)
-        all_sprites.draw(screen)
-        
         pygame.display.update()
 
         

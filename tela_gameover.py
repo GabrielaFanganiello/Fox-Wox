@@ -114,4 +114,6 @@ def tela_gameover(screen):
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
 
+    state = QUIT
+
     return state
