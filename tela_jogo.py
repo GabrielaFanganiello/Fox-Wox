@@ -95,6 +95,10 @@ def tela_jogo(screen):
                             wox.speedx += VELO_X
                         if event.key == pygame.K_d:
                             wox.speedx -= VELO_X
+
+                hits = pygame.sprite.spritecollide(all_sprites, wox, True, pygame.sprite.collide_mask)
+                if len(hits)>0:
+                    state = GAMEOVER
             if state == DYING:
                 state = GAMEOVER
 

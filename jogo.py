@@ -2,6 +2,7 @@
 # ----- Importa e inicia pacotes
 import pygame
 from config import LARG, ALT, INIT, QUIT, GAME, INSTRUCOES, GAMEOVER, PONTUACAO
+from sprites import *
 from tela_inicial import tela_inicial
 from tela_jogo import tela_jogo
 from tela_instrucoes import tela_instrucoes
