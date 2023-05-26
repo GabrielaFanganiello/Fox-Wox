@@ -13,7 +13,7 @@ def tela_gameover(screen):
     assets = load_assets()
 
     # Criando botoes
-    all_buttons = pygame.sprite.Group()
+    botoes_gameover = pygame.sprite.Group()
 
     # Calculando espaçamento entre os botões
     # Criando um botão apenas para pegar as medidas de um botão para realizar o cálculo
@@ -33,14 +33,14 @@ def tela_gameover(screen):
 
             botao_jogo.rect.centerx = 3*LARG / 10
             botao_jogo.rect.centery = 2* ALT/3
-            all_buttons.add(botao_jogo)
+            botoes_gameover.add(botao_jogo)
 
         else:
             botao_pontuacao = Botao(assets, "Pontuação")
 
             botao_pontuacao.rect.centerx = 7* LARG / 10
             botao_pontuacao.rect.centery = 2*ALT/3
-            all_buttons.add(botao_pontuacao)
+            botoes_gameover.add(botao_pontuacao)
     
     running = True
     while running:
@@ -60,7 +60,7 @@ def tela_gameover(screen):
                 running = False
             
             if event.type == pygame.MOUSEBUTTONDOWN:
-                for btn in all_buttons:
+                for btn in botoes_gameover:
                     if btn == botao_jogo:   # Se o botão de JOGO for clicado, vai para a tela do jogo
                         if btn.rect.collidepoint(event.pos):
                                 state = GAME
@@ -72,7 +72,7 @@ def tela_gameover(screen):
 
             if event.type == pygame.MOUSEMOTION:
                 #Alterando cor do botão
-                for btn in all_buttons:
+                for btn in botoes_gameover:
                     if btn.rect.collidepoint(event.pos):
                         btn.mouse_over(True)
                     else:
@@ -80,10 +80,10 @@ def tela_gameover(screen):
 
 
         screen.blit(assets[BACKGROUND], (0,0))
-        all_buttons.draw(screen)
+        botoes_gameover.draw(screen)
 
         # Escrevendo texto dos botões
-        for btn in all_buttons:
+        for btn in botoes_gameover:
             btn_texto = assets['font'].render(f"{btn.nome_do_jogo}", True, BRANCO)
             text_rect = btn_texto.get_rect()
             text_rect.centerx = btn.rect.centerx
