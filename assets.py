@@ -11,6 +11,61 @@ FOX_B_D = 'azul_direita'
 FOX_R_E  = 'vermelha_esquerda'
 FOX_R_D = 'vermelha_direita'
 
+# TILES
+# Chao vermelho
+CHAO_V = 'CHAO_V'
+CHAO_V_QD = 'CHAO_V_QD'
+CHAO_V_QE = 'CHAO_V_QE'
+CHAO_GRAMA_D = 'CHAO_GRAMA_D'
+CHAO_GRAMA_E = 'CHAO_GRAMA_E'
+CHAO_GRAMA = 'CHAO_GRAMA'
+CHAO_GRAMA_QD = 'CHAO_GRAMA_QD'
+CHAO_GRAMA_QE = 'CHAO_GRAMA_QE'
+PEDACIN_V = 'PEDACIN_V'
+NEGOCINHO_V = 'NEGOCINHO_V'
+TEXTURA_CHAO_V = 'TEXTURA_CHAO_V'
+ESQUERDINHA_V = 'ESQUERDINHA_V'
+DIREITINHA_V = 'DIREITINHA_V'
+
+# Chao azul
+CHAO_A = 'CHAO_A'
+CHAO_A_QD = 'CHAO_A_QD'
+CHAO_A_QE = 'CHAO_A_QE'
+CHAOA_GRAMA_D = 'CHAOA_GRAMA_D'
+CHAOA_GRAMA_E = 'CHAOA_GRAMA_E'
+CHAOA_GRAMA = 'CHAOA_GRAMA'
+CHAOA_GRAMA_QD = 'CHAOA_GRAMA_QD'
+CHAOA_GRAMA_QE = 'CHAOA_GRAMA_QE'
+PEDACIN_A = 'PEDACIN_A'
+NEGOCINHO_A = 'NEGOCINHO_A'
+TEXTURA_CHAO_A = 'TEXTURA_CHAO_A'
+ESQUERDINHA_A = 'ESQUERDINHA_A'
+DIREITINHA_A = 'DIREITINHA_A'
+
+# Fundo
+FUNDO_ESCURO = 'FUNDO_ESCURO'
+GRAMA_FUNDO = 'GRAMA_FUNDO'
+GRAMA_L = 'GRAMA_L'
+GRAMA_R = 'GRAMA_R'
+GRAMA_T = 'GRAMA_T'
+GRAMA_TL = 'GRAMA_TL'
+GRAMA_TR = 'GRAMA_TR'
+GRAMINHA_1 = 'GRAMINHA_1'
+GRAMINHA_2 = 'GRAMINHA_2'
+GRAMINHA_CHAO = 'GRAMINHA_CHAO'
+
+# Flores e pedras
+FLOR_1 = 'FLOR_1'
+FLOR_2 = 'FLOR_2'
+FLOR_3 = 'FLOR_3'
+FLOR_4 = 'FLOR_4'
+PEDRA_1 = 'PEDRA_1'
+PEDRA_2 = 'PEDRA_2'
+PLACA_C = 'PLACA_C'
+PLACA_E = 'PLACA_E'
+WATER = 'WATER'
+BOLHAS = 'BOLHAS'
+
 
 def load_assets():
     assets = {}
@@ -52,4 +107,19 @@ def load_assets():
     assets[FOX_R_D] = pygame.image.load(os.path.join(PERSONAGENS, 'raposa_v_direita', 'tile000.png')).convert_alpha()
     assets[FOX_R_D] = pygame.transform.scale(assets['vermelha_direita'], (100, 100))
 
+    # Carregando tiles
+    assets[1] = pygame.image.load(path.join(TILES, 'CHAO_V.png')).convert()
+    assets[2] = pygame.image.load(path.join(TILES, 'CHAO_A.png')).convert()
+    assets[3] = pygame.image.load(path.join(TILES, 'FUNDO_ESCURO.png')).convert()
+    assets[4] = pygame.image.load(path.join(TILES, 'WATER.png')).convert()
+    assets[5] = pygame.image.load(path.join(TILES, 'BOLHAS.png')).convert()
+    assets[6] = pygame.image.load(path.join(TILES, 'GRAMA_FUNDO.png')).convert()
+    assets[7] = pygame.image.load(path.join(TILES, 'GRAMA_L.png')).convert()
+    assets[8] = pygame.image.load(path.join(TILES, 'GRAMA_R.png')).convert()
+    assets[9] = pygame.image.load(path.join(TILES, 'GRAMA_T.png')).convert()
+    assets[10] = pygame.image.load(path.join(TILES, 'GRAMA_TL.png')).convert()
+    assets[11] = pygame.image.load(path.join(TILES, 'GRAMA_TR.png')).convert()
+    assets[12] = pygame.image.load(path.join(TILES, '')).convert()
+
+    
     return assets

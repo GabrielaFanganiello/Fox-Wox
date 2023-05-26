@@ -117,3 +117,21 @@ class Botao(pygame.sprite.Sprite):
             self.rect.bottom = ALT
         if self.rect.top < 0:
             self.rect.top = 0
+
+class Tile(pygame.sprite.Sprite):
+    def __init__(self, tile_img, row, column):
+
+        # Construtor da classe pai (Sprite).
+        pygame.sprite.Sprite.__init__(self)
+
+        # Aumenta o tamanho do tile.
+        tile_img = pygame.transform.scale(tile_img, (TILE_SIZE, TILE_SIZE))
+
+        # Define a imagem do tile.
+        self.image = tile_img
+        # Detalhes sobre o posicionamento.
+        self.rect = self.image.get_rect()
+
+        # Posiciona o tile
+        self.rect.x = TILE_SIZE * column
+        self.rect.y = TILE_SIZE * row
