@@ -40,7 +40,7 @@ def tela_jogo(screen):
     timer = 0
 
     # ===== Loop principal =====
-    while state != DONE:
+    while state != DONE and state != PONTUACAO and state != GAMEOVER:
         
         clock.tick(FPS)
 

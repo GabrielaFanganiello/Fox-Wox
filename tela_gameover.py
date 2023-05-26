@@ -13,7 +13,7 @@ def tela_gameover(screen):
     assets = load_assets()
 
     # Criando botoes
-    all_buttons = pygame.sprite.Group()
+    botoes_gameover = pygame.sprite.Group()
 
     # Calculando espaçamento entre os botões
     # Criando um botão apenas para pegar as medidas de um botão para realizar o cálculo
@@ -29,18 +29,18 @@ def tela_gameover(screen):
     # Criando primeira fileira com 4 botões
     for i in range(2):
         if i == 0:
-            botao_jogar_novamente = Botao(assets, "Jogar novamente")
+            botao_jogo = Botao(assets, "Jogar novamente")
 
-            botao_jogar_novamente.rect.centerx = 3*LARG / 10
-            botao_jogar_novamente.rect.centery = 2* ALT/3
-            all_buttons.add(botao_jogar_novamente)
+            botao_jogo.rect.centerx = 3*LARG / 10
+            botao_jogo.rect.centery = 2* ALT/3
+            botoes_gameover.add(botao_jogo)
 
         else:
             botao_pontuacao = Botao(assets, "Pontuação")
 
             botao_pontuacao.rect.centerx = 7* LARG / 10
             botao_pontuacao.rect.centery = 2*ALT/3
-            all_buttons.add(botao_pontuacao)
+            botoes_gameover.add(botao_pontuacao)
     
     running = True
     while running:
@@ -52,12 +52,12 @@ def tela_gameover(screen):
         for event in pygame.event.get():
             # Verifica se foi fechado.
             if event.type == pygame.QUIT:
-                state = QUIT
+                state = DONE
                 running = False
             
             if event.type == pygame.MOUSEBUTTONDOWN:
-                for btn in all_buttons:
-                    if btn == botao_jogar_novamente:   # Se o botão de JOGO for clicado, vai para a tela do jogo
+                for btn in botoes_gameover:
+                    if btn == botao_jogo:   # Se o botão de JOGO for clicado, vai para a tela do jogo
                         if btn.rect.collidepoint(event.pos):
                                 state = GAME
                                 running = False
@@ -68,7 +68,7 @@ def tela_gameover(screen):
 
             if event.type == pygame.MOUSEMOTION:
                 #Alterando cor do botão
-                for btn in all_buttons:
+                for btn in botoes_gameover:
                     if btn.rect.collidepoint(event.pos):
                         btn.mouse_over(True)
                     else:
@@ -76,10 +76,10 @@ def tela_gameover(screen):
 
 
         screen.blit(assets[BACKGROUND], (0,0))
-        all_buttons.draw(screen)
+        botoes_gameover.draw(screen)
 
         # Escrevendo texto dos botões
-        for btn in all_buttons:
+        for btn in botoes_gameover:
             btn_texto = assets['font'].render(f"{btn.nome_do_jogo}", True, BRANCO)
             text_rect = btn_texto.get_rect()
             text_rect.centerx = btn.rect.centerx
