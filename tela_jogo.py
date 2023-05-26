@@ -105,9 +105,10 @@ def tela_jogo(screen):
                         if event.key == pygame.K_d:
                             wox.speedx -= VELO_X
 
-                hits = pygame.sprite.spritecollide(all_sprites, wox, True, pygame.sprite.collide_mask)
-                if len(hits)>0:
+                hit = pygame.sprite.collide_rect(fox, wox)
+                if hit:
                     state = GAMEOVER
+
             if state == DYING:
                 state = GAMEOVER
 
@@ -127,5 +128,7 @@ def tela_jogo(screen):
         # Desenhando os personagens
         tiles.draw(screen)
         all_sprites.draw(screen)
-
+        
         pygame.display.update()
+
+        
