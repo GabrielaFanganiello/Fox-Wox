@@ -83,10 +83,6 @@ def load_assets():
     assets['btn_hover'] = pygame.image.load(os.path.join(BOTAO, 'btn1_hover.png')).convert_alpha()
     assets['btn_hover'] = pygame.transform.scale(assets['btn_hover'], (largura, altura))
 
-    # Pegando arquivo de dados com pontuações
-    assets[PONT] = pygame.image.load(os.path.join(PONTUACAO, 'dados_pontuacao.txt')).convert_alpha()
-    assets[PONT] = pygame.transform.scale(assets[PONT], (largura, altura))
-
     # Carregando Fonte
     assets['font'] = pygame.font.Font(os.path.join(FONTES,'PressStart2P.ttf'), 22)
     assets['font_media'] = pygame.font.Font(os.path.join(FONTES, 'PressStart2P.ttf'), 30)
