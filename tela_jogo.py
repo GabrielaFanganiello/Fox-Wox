@@ -115,5 +115,3 @@ def tela_jogo(screen):
         all_sprites.draw(screen)
 
         pygame.display.update()
-
-

@@ -6,6 +6,7 @@ SONS = path.join(path.dirname(__file__), 'assets', 'snd')
 FONTES = path.join(path.dirname(__file__), 'assets', 'fonte')
 FUNDO = path.join(path.dirname(__file__), 'assets', 'img')
 BOTAO = path.join(path.dirname(__file__), 'assets', 'img', 'botao')
+PONTUACAO = path.join(path.dirname(__file__), 'assets', 'pnt')
 
 
 # Dados gerais do jogo.
