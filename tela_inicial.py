@@ -8,16 +8,22 @@ from assets import *
 def tela_inicial(screen):
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
+
     assets = load_assets()
+
     # Criando botoes
     all_buttons = pygame.sprite.Group()
 
     # Calculando espaçamento entre os botões
-    # Criando um botão apenas para pegar as medidas de um botão para realizar o calculo
+    # Criando um botão apenas para pegar as medidas de um botão para realizar o cálculo
     medidas_botao = Botao(assets, '')
-    # O espaçamento é feito através da largura da janela menos o 
-    # espaço necessário para posicionar 4 botões
-    # depois é calculado o tamanho para 5 espaços vazios
+
+    '''
+    O espaçamento é feito através da largura da janela menos o 
+    espaço necessário para posicionar 4 botões
+    depois é calculado o tamanho para 5 espaços vazios
+    '''
+
     espacamento = (LARG - (medidas_botao.rect.width * 4))/ 5
     x = espacamento
     y = ALT /2
@@ -33,7 +39,7 @@ def tela_inicial(screen):
 
             x+= jogo.rect.width + espacamento
         else:
-            jogo = Botao(assets, "Instrucoes")
+            jogo = Botao(assets, "Instruções")
 
             jogo.rect.x = LARG / 2
             jogo.rect.centery = y

@@ -1,7 +1,6 @@
 # ===== Inicialização =====
 # ----- Importa e inicia pacotes
 import pygame
-import random
 from config import LARG, ALT, INIT, QUIT, GAME
 from tela_inicial import tela_inicial
 from tela_jogo import tela_jogo

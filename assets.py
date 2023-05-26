@@ -2,6 +2,7 @@ import pygame
 import os
 from config import *
 
+
 BACKGROUND = 'background'
 FOX_B = 'raposa_azul'
 FOX_R = 'raposa_vermelha'
