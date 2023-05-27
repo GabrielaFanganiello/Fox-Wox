@@ -27,7 +27,7 @@ def tela_pontuacao(screen):
                 running = False
 
             if event.type == pygame.KEYDOWN:
-                state = GAME
+                state = INIT
                 running = False
             
         screen.blit(assets[BACKGROUND], (0,0))

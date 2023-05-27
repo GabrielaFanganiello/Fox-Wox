@@ -28,7 +28,7 @@ def tela_instrucoes(screen):
                 running = False
 
             if event.type == pygame.KEYDOWN:
-                state = GAME
+                state = INIT
                 running = False
 
         # A cada loop, redesenha o fundo e os sprites
