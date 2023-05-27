@@ -111,18 +111,26 @@ def load_assets():
     assets[FOX_R_D] = pygame.transform.scale(assets['vermelha_direita'], (75, 75))
 
     # Carregando tiles
-    assets[1] = pygame.image.load(path.join(TILES, 'CHAO_V.png')).convert()
-    assets[2] = pygame.image.load(path.join(TILES, 'CHAO_A.png')).convert()
-    assets[3] = pygame.image.load(path.join(TILES, 'FUNDO_ESCURO.png')).convert()
-    assets[4] = pygame.image.load(path.join(TILES, 'WATER.png')).convert()
-    assets[5] = pygame.image.load(path.join(TILES, 'BOLHAS.png')).convert()
-    assets[6] = pygame.image.load(path.join(TILES, 'GRAMA_FUNDO.png')).convert()
-    assets[7] = pygame.image.load(path.join(TILES, 'GRAMA_L.png')).convert()
-    assets[8] = pygame.image.load(path.join(TILES, 'GRAMA_R.png')).convert()
-    assets[9] = pygame.image.load(path.join(TILES, 'GRAMA_T.png')).convert()
-    assets[10] = pygame.image.load(path.join(TILES, 'GRAMA_TL.png')).convert()
-    assets[11] = pygame.image.load(path.join(TILES, 'GRAMA_TR.png')).convert()
-    # assets[12] = pygame.image.load(path.join(TILES, '')).convert()
+    assets[1] = pygame.image.load(path.join(TILES, 'CHAO_V.png')).convert_alpha()
+    assets[2] = pygame.image.load(path.join(TILES, 'CHAO_A.png')).convert_alpha()
+    assets[3] = pygame.image.load(path.join(TILES, 'FUNDO_ESCURO.png')).convert_alpha()
+    assets[4] = pygame.image.load(path.join(TILES, 'WATER.png')).convert_alpha()
+    assets[5] = pygame.image.load(path.join(TILES, 'BOLHAS.png')).convert_alpha()
+    assets[6] = pygame.image.load(path.join(TILES, 'GRAMA_FUNDO.png')).convert_alpha()
+    assets[7] = pygame.image.load(path.join(TILES, 'GRAMA_L.png')).convert_alpha()
+    assets[8] = pygame.image.load(path.join(TILES, 'GRAMA_R.png')).convert_alpha()
+    assets[9] = pygame.image.load(path.join(TILES, 'GRAMA_T.png')).convert_alpha()
+    assets[10] = pygame.image.load(path.join(TILES, 'GRAMA_TL.png')).convert_alpha()
+    assets[11] = pygame.image.load(path.join(TILES, 'GRAMA_TR.png')).convert_alpha()
+    assets[12] = pygame.image.load(path.join(TILES, 'CHAO_A_QD.png')).convert_alpha()
+    assets[13] = pygame.image.load(path.join(TILES, 'CHAO_A_QE.png')).convert_alpha()
+    assets[14] = pygame.image.load(path.join(TILES, 'CHAO_V_QD.png')).convert_alpha()
+    assets[15] = pygame.image.load(path.join(TILES, 'CHAO_V_QE.png')).convert_alpha()
+    assets[16] = pygame.image.load(path.join(TILES, 'DIREITINHA_A.png')).convert_alpha()
+    assets[17] = pygame.image.load(path.join(TILES, 'DIREITINHA_V.png')).convert_alpha()
+    assets[18] = pygame.image.load(path.join(TILES, 'ESQUERDINHA_A.png')).convert_alpha()
+    assets[19] = pygame.image.load(path.join(TILES, 'ESQUERDINHA_V.png')).convert_alpha()
+
 
     
     return assets

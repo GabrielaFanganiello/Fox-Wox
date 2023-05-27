@@ -18,6 +18,7 @@ def tela_jogo(screen):
     groups['all_sprites'] = all_sprites
 
     # Cria um grupo de tiles.
+    tipos_blocks = [1, 2, 3, 12, 13, 14, 15, 16, 17, 18, 19]
     tiles = pygame.sprite.Group()
     blocks = pygame.sprite.Group()
     # Cria tiles de acordo com o mapa
@@ -26,7 +27,7 @@ def tela_jogo(screen):
             tile_type = MAP[row][column]
             tile = Tile(assets[tile_type], row, column)
             tiles.add(tile)
-            if tile_type == 1 or tile_type == 2:
+            if tile_type in tipos_blocks:
                 blocks.add(tile)
 
     # Criando a raposa vermelha
@@ -114,6 +115,7 @@ def tela_jogo(screen):
         # ----- Gera saídas
 
         # Desenhando os tiles e os personagens
+        screen.fill('#382c54')
         tiles.draw(screen)
         all_sprites.draw(screen)
 
