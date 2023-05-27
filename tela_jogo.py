@@ -108,7 +108,7 @@ def tela_jogo(screen):
             if hit:
                 fox.kill()
                 wox.kill()
-                state = GAMEOVER
+                state = PONTUACAO
 
         # if state == DYING:
         #     now = pygame.time.get_ticks()

@@ -26,7 +26,7 @@ def tela_gameover(screen):
     '''
 
 
-    # Criando primeira fileira com 4 botões
+    # Criando primeira fileira com 2 botões
     for i in range(2):
         if i == 0:
             botao_jogo = Botao(assets, "Jogar novamente")
