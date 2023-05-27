@@ -6,7 +6,7 @@ from sprites import *
 from tela_inicial import tela_inicial
 from tela_jogo import tela_jogo
 from tela_instrucoes import tela_instrucoes
-from tela_gameover_teste import tela_gameover_teste
+from tela_gameover import tela_gameover
 from tela_pontuacao import tela_pontuacao
 
 pygame.init()
@@ -25,7 +25,7 @@ while state != DONE:
     elif state == INSTRUCOES:
         state = tela_instrucoes(window)
     elif state == GAMEOVER:
-        state = tela_gameover_teste(window)
+        state = tela_gameover(window)
     elif state == PONTUACAO:
         state = tela_pontuacao(window)
     else:

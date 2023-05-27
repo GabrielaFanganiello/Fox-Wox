@@ -109,7 +109,8 @@ def tela_jogo(screen):
             if hit:
                 fox.kill()
                 wox.kill()
-                state = PONTUACAO
+                state = GAMEOVER
+                
 
 
         # ----- Gera saídas
@@ -129,4 +130,5 @@ def tela_jogo(screen):
 
         pygame.display.update()
 
+    return state
         

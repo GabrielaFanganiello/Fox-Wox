@@ -63,7 +63,7 @@ def tela_gameover(screen):
                                 running = False
                     if btn == botao_pontuacao:  # Se o botão de PONTUACAO for clicado, vai para a tela de pontuacao
                         if btn.rect.collidepoint(event.pos):  
-                                state = DONE
+                                state = PONTUACAO
                                 running = False
 
             if event.type == pygame.MOUSEMOTION:
