@@ -17,22 +17,25 @@ def tela_jogo(screen):
     groups = {}
     groups['all_sprites'] = all_sprites
 
-    # Criando a raposa vermelha
-    fox = Fox(groups, assets)
-    all_sprites.add(fox)
-
-    # Criando a raposa azul
-    wox = Wox(groups, assets)
-    all_sprites.add(wox)
-
     # Cria um grupo de tiles.
     tiles = pygame.sprite.Group()
+    blocks = pygame.sprite.Group()
     # Cria tiles de acordo com o mapa
     for row in range(len(MAP)):
         for column in range(len(MAP[row])):
             tile_type = MAP[row][column]
             tile = Tile(assets[tile_type], row, column)
             tiles.add(tile)
+            if tile_type == 1:
+                blocks.add(tile)
+
+    # Criando a raposa vermelha
+    fox = Fox(groups, assets, blocks)
+    all_sprites.add(fox)
+
+    # Criando a raposa azul
+    wox = Wox(groups, assets, blocks)
+    all_sprites.add(wox)
 
     state = PLAYING
     keys_down = {}
@@ -60,6 +63,17 @@ def tela_jogo(screen):
 
             # Só verifica o teclado se está no estado de jogo
             if state == PLAYING:
+                hit = pygame.sprite.collide_rect(fox, wox)
+                if hit:
+                    fox.kill()
+                    wox.kill()
+                    state = GAMEOVER
+
+                no_chao_fox = pygame.sprite.spritecollide(fox, blocks, False)
+                if no_chao_fox:
+                    fox.rect.bottom = no_chao_fox[0].rect.top
+
+                no_chao_wox = pygame.sprite.spritecollide(wox, blocks, False)
 
                 # Verifica se apertou alguma tecla.
                 if event.type == pygame.KEYDOWN:
@@ -67,16 +81,16 @@ def tela_jogo(screen):
                     keys_down[event.key] = True
 
                     # Verifica qual tecla foi apertada, comandos raposa azul.
-                    if event.key == pygame.K_w and wox.rect.bottom == ALT:
-                        wox.speedy = -15
+                    if event.key == pygame.K_w and fox.state == STILL:
+                        wox.speedy = -7
                     if event.key == pygame.K_a:
                         wox.speedx -= VELO_X
                     if event.key == pygame.K_d:
                         wox.speedx += VELO_X
 
                     # Verifica qual tecla foi apertada, comandos raposa vermelha.
-                    elif event.key == pygame.K_UP and fox.rect.bottom == ALT:
-                        fox.speedy = -15
+                    elif event.key == pygame.K_UP and fox.state == STILL:
+                        fox.speedy = -7
                     if event.key == pygame.K_LEFT:
                         fox.speedx -= VELO_X
                     if event.key == pygame.K_RIGHT:
@@ -102,21 +116,9 @@ def tela_jogo(screen):
         # ----- Atualiza estado do jogo
         all_sprites.update()
 
-        # Verifica se houve colisão entre personagens
-        if state == PLAYING:
-
-            hit = pygame.sprite.collide_rect(fox, wox)
-            if hit:
-                fox.kill()
-                wox.kill()
-                state = GAMEOVER
-                
-
-
         # ----- Gera saídas
-        screen.blit(assets[BACKGROUND], (0, 0))
 
-        # Desenhando os personagens
+        # Desenhando os tiles e os personagens
         tiles.draw(screen)
         all_sprites.draw(screen)
 
