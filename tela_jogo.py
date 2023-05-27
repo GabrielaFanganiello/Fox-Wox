@@ -26,7 +26,7 @@ def tela_jogo(screen):
             tile_type = MAP[row][column]
             tile = Tile(assets[tile_type], row, column)
             tiles.add(tile)
-            if tile_type == 1:
+            if tile_type == 1 or tile_type == 2:
                 blocks.add(tile)
 
     # Criando a raposa vermelha
@@ -69,33 +69,28 @@ def tela_jogo(screen):
                     wox.kill()
                     state = GAMEOVER
 
-                no_chao_fox = pygame.sprite.spritecollide(fox, blocks, False)
-                if no_chao_fox:
-                    fox.rect.bottom = no_chao_fox[0].rect.top
-
-                no_chao_wox = pygame.sprite.spritecollide(wox, blocks, False)
 
                 # Verifica se apertou alguma tecla.
                 if event.type == pygame.KEYDOWN:
 
                     keys_down[event.key] = True
 
-                    # Verifica qual tecla foi apertada, comandos raposa azul.
-                    if event.key == pygame.K_w and fox.state == STILL:
-                        wox.speedy = -7
-                    if event.key == pygame.K_a:
-                        wox.speedx -= VELO_X
-                    if event.key == pygame.K_d:
-                        wox.speedx += VELO_X
 
                     # Verifica qual tecla foi apertada, comandos raposa vermelha.
-                    elif event.key == pygame.K_UP and fox.state == STILL:
+                    if event.key == pygame.K_UP and fox.state == STILL:
                         fox.speedy = -7
                     if event.key == pygame.K_LEFT:
                         fox.speedx -= VELO_X
                     if event.key == pygame.K_RIGHT:
                         fox.speedx += VELO_X
                     
+                    # Verifica qual tecla foi apertada, comandos raposa azul.
+                    if event.key == pygame.K_w and wox.state == STILL:
+                        wox.speedy = -7
+                    if event.key == pygame.K_a:
+                        wox.speedx -= VELO_X
+                    if event.key == pygame.K_d:
+                        wox.speedx += VELO_X
 
                 # Verifica se soltou alguma tecla.
                 if event.type == pygame.KEYUP:

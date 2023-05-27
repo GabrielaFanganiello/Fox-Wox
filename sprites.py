@@ -24,7 +24,7 @@ class Fox(pygame.sprite.Sprite):
         self.blocks = blocks
 
         # Posiciona a raposa
-        self.rect.centerx = 300
+        self.rect.centerx = 1100
         self.rect.bottom = ALT
 
         # Velocidade da raposa
@@ -115,9 +115,10 @@ class Wox(pygame.sprite.Sprite):
     def update(self):
         ## Atualização da posição da raposa
 
-        # Tentando saltar / andar no eixo y
+        # Atualiza a velocidade aplicando a aceleração da gravidade
         self.speedy += GRAVITY
         self.rect.y += self.speedy 
+
 
         # Se colidiu com algum bloco, volta para o ponto antes da colisão
         collisions = pygame.sprite.spritecollide(self, self.blocks, False)
@@ -143,15 +144,17 @@ class Wox(pygame.sprite.Sprite):
         self.rect.x += self.speedx
 
         # Corrige a posição caso tenha passado do tamanho da janela
-        if self.rect.right > LARG:
-            self.rect.right = LARG
         if self.rect.left < 0:
             self.rect.left = 0
+        elif self.rect.right > LARG:
+            self.rect.right = LARG
 
         if self.rect.bottom > ALT:
             self.rect.bottom = ALT
         if self.rect.top < 0:
             self.rect.top = 0
+
+        collisions = pygame.sprite.spritecollide(self, self.blocks, False)
 
         for collision in collisions:
             # Estava indo para a direita
@@ -160,6 +163,7 @@ class Wox(pygame.sprite.Sprite):
             # Estava indo para a esquerda
             elif self.speedx < 0:
                 self.rect.left = collision.rect.right
+
 
 class Botao(pygame.sprite.Sprite):
     def __init__(self, assets, nome_do_jogo):
