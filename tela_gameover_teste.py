@@ -28,7 +28,7 @@ def tela_gameover_teste(screen):
                 running = False
 
             if event.type == pygame.KEYUP:
-                state = INIT
+                state = PONTUACAO
                 running = False
 
         # A cada loop, redesenha o fundo e os sprites

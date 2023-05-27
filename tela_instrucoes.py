@@ -27,12 +27,11 @@ def tela_instrucoes(screen):
                 state = DONE
                 running = False
 
-            if event.type == pygame.KEYUP:
-                state = INIT
+            if event.type == pygame.KEYDOWN:
+                state = GAME
                 running = False
 
         # A cada loop, redesenha o fundo e os sprites
-        screen.fill(PRETO)
         screen.blit(instrucoes, instrucoes_rect)
 
         # Depois de desenhar tudo, inverte o display.

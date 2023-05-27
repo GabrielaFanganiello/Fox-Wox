@@ -110,6 +110,7 @@ def tela_jogo(screen):
                 fox.kill()
                 wox.kill()
                 state = GAMEOVER
+                
 
 
         # ----- Gera saídas
@@ -129,4 +130,5 @@ def tela_jogo(screen):
 
         pygame.display.update()
 
+    return state
         
