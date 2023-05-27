@@ -52,11 +52,7 @@ def tela_gameover(screen):
         for event in pygame.event.get():
             # Verifica se foi fechado.
             if event.type == pygame.QUIT:
-                state = QUIT
-                running = False
-
-            if event.type == pygame.KEYUP:
-                state = GAME
+                state = DONE
                 running = False
             
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -67,7 +63,7 @@ def tela_gameover(screen):
                                 running = False
                     if btn == botao_pontuacao:  # Se o botão de PONTUACAO for clicado, vai para a tela de pontuacao
                         if btn.rect.collidepoint(event.pos):  
-                                state = PONTUACAO
+                                state = DONE
                                 running = False
 
             if event.type == pygame.MOUSEMOTION:
