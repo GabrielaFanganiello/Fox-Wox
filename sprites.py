@@ -178,7 +178,7 @@ class Wox(pygame.sprite.Sprite):
     def jump(self):
         # Só pode pular se ainda não estiver pulando ou caindo
         if self.state == STILL:
-            self.speedy -= 7
+            self.speedy -= 6.3
             self.state = JUMPING
 
 
