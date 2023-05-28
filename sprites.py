@@ -38,9 +38,12 @@ class Fox(pygame.sprite.Sprite):
         ## Atualização da posição da raposa
 
         # Atualiza a velocidade aplicando a aceleração da gravidade
+
+        if self.speedy > 0:
+            self.state = FALLING
+
         self.speedy += GRAVITY
         self.rect.y += self.speedy 
-
 
         # Se colidiu com algum bloco, volta para o ponto antes da colisão
         collisions = pygame.sprite.spritecollide(self, self.blocks, False)
@@ -71,9 +74,9 @@ class Fox(pygame.sprite.Sprite):
         elif self.rect.right > LARG:
             self.rect.right = LARG
 
-        if self.rect.bottom > ALT:
+        elif self.rect.bottom > ALT:
             self.rect.bottom = ALT
-        if self.rect.top < 0:
+        elif self.rect.top < 0:
             self.rect.top = 0
 
         collisions = pygame.sprite.spritecollide(self, self.blocks, False)
@@ -86,6 +89,11 @@ class Fox(pygame.sprite.Sprite):
             elif self.speedx < 0:
                 self.rect.left = collision.rect.right
 
+    def jump(self):
+        # Só pode pular se ainda não estiver pulando ou caindo
+        if self.state == STILL:
+            self.speedy -= 6.3
+            self.state = JUMPING
 
 class Wox(pygame.sprite.Sprite):
     def __init__(self, groups, assets, blocks):
@@ -116,9 +124,12 @@ class Wox(pygame.sprite.Sprite):
         ## Atualização da posição da raposa
 
         # Atualiza a velocidade aplicando a aceleração da gravidade
+
+        if self.speedy > 0:
+            self.state = FALLING
+
         self.speedy += GRAVITY
         self.rect.y += self.speedy 
-
 
         # Se colidiu com algum bloco, volta para o ponto antes da colisão
         collisions = pygame.sprite.spritecollide(self, self.blocks, False)
@@ -149,9 +160,9 @@ class Wox(pygame.sprite.Sprite):
         elif self.rect.right > LARG:
             self.rect.right = LARG
 
-        if self.rect.bottom > ALT:
+        elif self.rect.bottom > ALT:
             self.rect.bottom = ALT
-        if self.rect.top < 0:
+        elif self.rect.top < 0:
             self.rect.top = 0
 
         collisions = pygame.sprite.spritecollide(self, self.blocks, False)
@@ -163,6 +174,12 @@ class Wox(pygame.sprite.Sprite):
             # Estava indo para a esquerda
             elif self.speedx < 0:
                 self.rect.left = collision.rect.right
+
+    def jump(self):
+        # Só pode pular se ainda não estiver pulando ou caindo
+        if self.state == STILL:
+            self.speedy -= 7
+            self.state = JUMPING
 
 
 class Botao(pygame.sprite.Sprite):

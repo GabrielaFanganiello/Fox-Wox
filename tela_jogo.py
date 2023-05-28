@@ -48,7 +48,7 @@ def tela_jogo(screen):
         
         clock.tick(FPS)
 
-        if timer<60:
+        if timer < 60:
             timer += 1
 
         else:
@@ -70,31 +70,30 @@ def tela_jogo(screen):
                     wox.kill()
                     state = GAMEOVER
 
-
                 # Verifica se apertou alguma tecla.
-                if event.type == pygame.KEYDOWN:
+                elif event.type == pygame.KEYDOWN:
 
                     keys_down[event.key] = True
 
 
                     # Verifica qual tecla foi apertada, comandos raposa vermelha.
-                    if event.key == pygame.K_UP and fox.state == STILL:
-                        fox.speedy = -7
+                    if event.key == pygame.K_UP:
+                        fox.jump()
                     if event.key == pygame.K_LEFT:
                         fox.speedx -= VELO_X
                     if event.key == pygame.K_RIGHT:
                         fox.speedx += VELO_X
                     
                     # Verifica qual tecla foi apertada, comandos raposa azul.
-                    if event.key == pygame.K_w and wox.state == STILL:
-                        wox.speedy = -7
+                    if event.key == pygame.K_w:
+                        wox.jump()
                     if event.key == pygame.K_a:
                         wox.speedx -= VELO_X
                     if event.key == pygame.K_d:
                         wox.speedx += VELO_X
 
                 # Verifica se soltou alguma tecla.
-                if event.type == pygame.KEYUP:
+                elif event.type == pygame.KEYUP:
 
                     # Dependendo da tecla, altera a velocidade.
                     if event.key in keys_down and keys_down[event.key]:
