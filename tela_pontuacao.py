@@ -58,9 +58,11 @@ def tela_pontuacao(screen):
             if event.type == pygame.KEYDOWN:
                 state = VENCEDOR
                 running = False
-            
+        
+        # Carrega imagem de fundo
         screen.blit(assets[BACKGROUND], (0,0))
 
+        # Desenha as colunas de nome e pontuacao na tela 
         nome = assets['font_media'].render("NOME: ", True, BRANCO)
         text_rect = nome.get_rect()
         text_rect.x = 50
@@ -75,6 +77,7 @@ def tela_pontuacao(screen):
 
         cont_nome = 0
 
+        # Escreve os nomes e pontuaçOes dos jogadores
         for nome in lista_nomes:
             nomes = assets['font_media'].render("{0} ".format(nome), True, BRANCO)
             text_rect = nomes.get_rect()

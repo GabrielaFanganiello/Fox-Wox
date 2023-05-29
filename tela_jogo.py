@@ -73,15 +73,15 @@ def tela_jogo(screen):
                 hit_water_f = pygame.sprite.spritecollide(fox, water, False)
                 hit_water_w = pygame.sprite.spritecollide(wox, water, False)
                 hit = pygame.sprite.collide_rect(fox, wox)
-                if hit_water_f or hit_water_w:
+                if hit_water_f or hit_water_w:                      # Verifica se uma raposa caiu na água
                     fox.kill()
                     wox.kill()
-                    state = GAMEOVER
+                    state = GAMEOVER 
 
-                if hit:
+                if hit:                                             # Verifica se as raposas se encontraram
                     fox.kill()
                     wox.kill
-                    tempo_total.append(tempo_segundos)
+                    tempo_total.append(tempo_segundos)              # Guarda o tempo que levou para ganhar
                     with open('pontuacao.txt', 'a') as arquivo:
                         arquivo.write('{0} '.format(tempo_segundos))
                     state = NOME

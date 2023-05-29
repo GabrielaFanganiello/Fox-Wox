@@ -14,16 +14,8 @@ def tela_inicial(screen):
     # Criando botoes
     all_buttons = pygame.sprite.Group()
 
-    # Calculando espaçamento entre os botões
     # Criando um botão apenas para pegar as medidas de um botão para realizar o cálculo
     medidas_botao = Botao(assets, '')
-
-    '''
-    O espaçamento é feito através da largura da janela menos o 
-    espaço necessário para posicionar 4 botões
-    depois é calculado o tamanho para 5 espaços vazios
-    '''
-
 
     # Criando primeira fileira com 4 botões
     for i in range(2):
