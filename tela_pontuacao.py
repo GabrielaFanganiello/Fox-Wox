@@ -5,13 +5,7 @@ from sprites import Botao
 from config import *
 from assets import *
 from tela_jogo import *
-from tela_nome import *
-
-pontuados = {}
-
-for i in range(len(tempo_total)):
-    pontuados[jogadores[i]] = tempo_total[i]
-print(pontuados)
+from tela_nome import *        
 
 def tela_pontuacao(screen):
 
@@ -25,6 +19,18 @@ def tela_pontuacao(screen):
 
         # Ajusta a velocidade do jogo.
         clock.tick(FPS)
+
+        # Lendo de linha em linha (note o plural em readlines)
+        with open('pontuacao.txt', 'r') as arquivo:
+            # linhas é uma lista de strings, cada linha é uma string diferente
+            linhas = arquivo.readlines()
+            for linha in linhas:
+                linha.strip()
+                print (linha)
+
+            lista_pontuacoes = linhas[::2]
+            lista_nomes = linhas[1::2]
+
 
         # Processa os eventos (mouse, teclado, botão, etc).
         for event in pygame.event.get():
@@ -45,13 +51,23 @@ def tela_pontuacao(screen):
         text_rect.centery = 50
         screen.blit(nome, text_rect)
 
+        nomes = assets['font_media'].render("{0} ".format(lista_nomes), True, BRANCO)
+        text_rect = nomes.get_rect()
+        text_rect.x = 50
+        text_rect.centery = 100
+        screen.blit(nomes, text_rect)
+
         pontuacao = assets['font_media'].render("TEMPO:", True, BRANCO)
         text_rect = pontuacao.get_rect()
         text_rect.centerx = (LARG / 2) + 100
         text_rect.centery = 50
         screen.blit(pontuacao, text_rect)
 
-        dados = assets
+        pontuacoes = assets['font_media'].render("{0}".format(lista_pontuacoes), True, BRANCO)
+        text_rect = pontuacoes.get_rect()
+        text_rect.centerx = (LARG / 2) + 100
+        text_rect.centery = 100
+        screen.blit(pontuacoes, text_rect)
         
 
         # Depois de desenhar tudo, inverte o display.

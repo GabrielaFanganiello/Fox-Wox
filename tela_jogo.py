@@ -80,6 +80,8 @@ def tela_jogo(screen):
                     fox.kill()
                     wox.kill
                     tempo_total.append(tempo_segundos)
+                    with open('pontuacao.txt', 'a') as arquivo:
+                        arquivo.write('{0} \n'.format(tempo_segundos))
                     state = NOME
 
                 # Verifica se apertou alguma tecla.
@@ -141,4 +143,3 @@ def tela_jogo(screen):
         pygame.display.update()
 
     return state
-        
