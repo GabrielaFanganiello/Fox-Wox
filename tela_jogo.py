@@ -21,6 +21,7 @@ def tela_jogo(screen):
     tipos_blocks = [1, 2, 3, 12, 13, 14, 15, 16, 17, 18, 19]
     tiles = pygame.sprite.Group()
     blocks = pygame.sprite.Group()
+    water = pygame.sprite.Group()
     # Cria tiles de acordo com o mapa
     for row in range(len(MAP)):
         for column in range(len(MAP[row])):
@@ -29,6 +30,8 @@ def tela_jogo(screen):
             tiles.add(tile)
             if tile_type in tipos_blocks:
                 blocks.add(tile)
+            elif tile_type == 4:
+                water.add(tile)
 
     # Criando a raposa vermelha
     fox = Fox(groups, assets, blocks)
@@ -64,8 +67,10 @@ def tela_jogo(screen):
 
             # Só verifica o teclado se está no estado de jogo
             if state == PLAYING:
+                hit_water_f = pygame.sprite.spritecollide(fox, water, False)
+                hit_water_w = pygame.sprite.spritecollide(wox, water, False)
                 hit = pygame.sprite.collide_rect(fox, wox)
-                if hit:
+                if hit or hit_water_f or hit_water_w:
                     fox.kill()
                     wox.kill()
                     state = GAMEOVER
