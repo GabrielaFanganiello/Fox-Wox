@@ -8,6 +8,7 @@ from tela_jogo import tela_jogo
 from tela_instrucoes import tela_instrucoes
 from tela_gameover import tela_gameover
 from tela_pontuacao import tela_pontuacao
+from tela_nome import tela_nome
 
 pygame.init()
 pygame.mixer.init()
@@ -26,6 +27,8 @@ while state != DONE:
         state = tela_instrucoes(window)
     elif state == GAMEOVER:
         state = tela_gameover(window)
+    elif state == NOME:
+        state = tela_nome(window)
     elif state == PONTUACAO:
         state = tela_pontuacao(window)
     else:
