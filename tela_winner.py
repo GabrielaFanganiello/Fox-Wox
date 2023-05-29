@@ -15,18 +15,10 @@ def tela_winner(screen):
     # Criando botoes
     botoes_gameover = pygame.sprite.Group()
 
-    # Calculando espaçamento entre os botões
     # Criando um botão apenas para pegar as medidas de um botão para realizar o cálculo
     medidas_botao = Botao(assets, '')
 
-    '''
-    O espaçamento é feito através da largura da janela menos o 
-    espaço necessário para posicionar 4 botões
-    depois é calculado o tamanho para 5 espaços vazios
-    '''
-
-
-    # Criando primeira fileira com 2 botões
+    # Criando 3 botões
     for i in range(3):
         if i == 0:
             botao_jogo = Botao(assets, "Jogar novamente")
@@ -82,6 +74,7 @@ def tela_winner(screen):
                                 state = DONE
                                 running = False
 
+            # Cria animação quando o mouse passa em cima do botão
             if event.type == pygame.MOUSEMOTION:
                 #Alterando cor do botão
                 for btn in botoes_gameover:
@@ -90,7 +83,7 @@ def tela_winner(screen):
                     else:
                         btn.mouse_over(False)
 
-
+        # Desenha o fundo
         screen.blit(assets[BACKGROUND], (0,0))
         botoes_gameover.draw(screen)
 
@@ -102,6 +95,7 @@ def tela_winner(screen):
             text_rect.centery = btn.rect.centery
             screen.blit(btn_texto, text_rect)
 
+        # Escreve texto da tela
         tela_titulo = assets['font_media'].render("VOCE VENCEU!!", True, BRANCO)
         text_rect = tela_titulo.get_rect()
         text_rect.centerx = LARG / 4
