@@ -81,7 +81,7 @@ def tela_jogo(screen):
                     wox.kill
                     tempo_total.append(tempo_segundos)
                     with open('pontuacao.txt', 'a') as arquivo:
-                        arquivo.write('{0} \n'.format(tempo_segundos))
+                        arquivo.write('{0} '.format(tempo_segundos))
                     state = NOME
 
                 # Verifica se apertou alguma tecla.
