@@ -48,6 +48,7 @@ def tela_jogo(screen):
     timer = 0
 
     # ===== Loop principal =====
+    pygame.mixer.music.play(loops=-1) 
     while state != DONE and state != PONTUACAO and state != GAMEOVER and state != NOME:
         
         clock.tick(FPS)
