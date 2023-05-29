@@ -7,7 +7,9 @@ from assets import *
 from tela_jogo import *
 from tela_nome import *        
 
-# pontuados = {}
+pontuados = {}
+lista_nomes = []
+lista_pontos = []
 
 def tela_pontuacao(screen):
 
@@ -34,12 +36,16 @@ def tela_pontuacao(screen):
             linhas = linhas.split(' ')
 
             lista_pontuacoes = linhas[:-1:2]
-            lista_nomes = linhas[1::2]
+            lista_nome = linhas[1::2]
 
-            # for i in range(len(lista_pontuacoes)):
-            #     pontuados[lista_nomes[i]] = lista_pontuacoes[i]
+            for i in range(len(lista_pontuacoes)):
+                pontuados[lista_nome[i]] = lista_pontuacoes[i]
 
-            # pontos_ordenados = sorted(pontuados)
+            for i in sorted(pontuados, key = pontuados.get):
+                if  i not in lista_nomes[i]:
+                    lista_nomes.append(i)
+                    lista_pontos.append(pontuados[i])
+
 
         # Processa os eventos (mouse, teclado, botão, etc).
         for event in pygame.event.get():
@@ -81,7 +87,7 @@ def tela_pontuacao(screen):
             cont_nome += 50
 
         cont_pont = 0
-        for pontuacao in lista_pontuacoes:
+        for pontuacao in lista_pontos:
             pontuacoes = assets['font_media'].render("{0}".format(pontuacao), True, BRANCO)
             text_rect = pontuacoes.get_rect()
             text_rect.centerx = (LARG / 2) + 100
