@@ -7,6 +7,8 @@ from assets import *
 from tela_jogo import *
 from tela_nome import *        
 
+# pontuados = {}
+
 def tela_pontuacao(screen):
 
     # Variável para o ajuste de velocidade
@@ -23,14 +25,16 @@ def tela_pontuacao(screen):
         # Lendo de linha em linha (note o plural em readlines)
         with open('pontuacao.txt', 'r') as arquivo:
             # linhas é uma lista de strings, cada linha é uma string diferente
-            linhas = arquivo.readlines()
-            for linha in linhas:
-                linha.strip()
-                print (linha)
+            linhas = arquivo.read()
+            linhas = linhas.split(' ')
 
-            lista_pontuacoes = linhas[::2]
+            lista_pontuacoes = linhas[:-1:2]
             lista_nomes = linhas[1::2]
 
+            # for i in range(len(lista_pontuacoes)):
+            #     pontuados[lista_nomes[i]] = lista_pontuacoes[i]
+
+            # pontos_ordenados = sorted(pontuados)
 
         # Processa os eventos (mouse, teclado, botão, etc).
         for event in pygame.event.get():
@@ -51,23 +55,32 @@ def tela_pontuacao(screen):
         text_rect.centery = 50
         screen.blit(nome, text_rect)
 
-        nomes = assets['font_media'].render("{0} ".format(lista_nomes), True, BRANCO)
-        text_rect = nomes.get_rect()
-        text_rect.x = 50
-        text_rect.centery = 100
-        screen.blit(nomes, text_rect)
-
         pontuacao = assets['font_media'].render("TEMPO:", True, BRANCO)
         text_rect = pontuacao.get_rect()
         text_rect.centerx = (LARG / 2) + 100
         text_rect.centery = 50
         screen.blit(pontuacao, text_rect)
 
-        pontuacoes = assets['font_media'].render("{0}".format(lista_pontuacoes), True, BRANCO)
-        text_rect = pontuacoes.get_rect()
-        text_rect.centerx = (LARG / 2) + 100
-        text_rect.centery = 100
-        screen.blit(pontuacoes, text_rect)
+        cont_nome = 0
+
+        for nome in lista_nomes:
+            nomes = assets['font_media'].render("{0} ".format(nome), True, BRANCO)
+            text_rect = nomes.get_rect()
+            text_rect.x = 50
+            text_rect.centery = 100 + cont_nome
+            screen.blit(nomes, text_rect)
+
+            cont_nome += 50
+
+        cont_pont = 0
+        for pontuacao in lista_pontuacoes:
+            pontuacoes = assets['font_media'].render("{0}".format(pontuacao), True, BRANCO)
+            text_rect = pontuacoes.get_rect()
+            text_rect.centerx = (LARG / 2) + 100
+            text_rect.centery = 100 + cont_pont
+            screen.blit(pontuacoes, text_rect)
+
+            cont_pont += 50
         
 
         # Depois de desenhar tudo, inverte o display.

@@ -97,7 +97,7 @@ def tela_winner(screen):
             text_rect.centery = btn.rect.centery
             screen.blit(btn_texto, text_rect)
 
-        tela_titulo = assets['font_media'].render("VOCE VENCEU:", True, BRANCO)
+        tela_titulo = assets['font_media'].render("VOCE VENCEU!!", True, BRANCO)
         text_rect = tela_titulo.get_rect()
         text_rect.centerx = LARG / 4
         text_rect.centery = 100

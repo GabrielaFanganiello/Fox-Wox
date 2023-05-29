@@ -67,7 +67,7 @@ def tela_nome(screen):
                         # Se apertar o return armazena o nome do jogador e vai para prox tela
                         jogadores.append(nome)
                         with open('pontuacao.txt', 'a') as arquivo:
-                            arquivo.write('{0} \n'.format(nome))
+                            arquivo.write('{0} '.format(nome))
                         state = VENCEDOR
                         done = True
                         nome = ''
