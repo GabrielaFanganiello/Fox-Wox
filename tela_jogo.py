@@ -5,6 +5,7 @@ from config import *
 from assets import *
 from sprites import *
 
+tempo_total = []
 
 def tela_jogo(screen):
     # Variável para o ajuste de velocidade
@@ -45,7 +46,6 @@ def tela_jogo(screen):
     keys_down = {}
     tempo_segundos = 0
     timer = 0
-    tempo_total = 0
 
     # ===== Loop principal =====
     while state != DONE and state != PONTUACAO and state != GAMEOVER and state != NOME:
@@ -79,7 +79,7 @@ def tela_jogo(screen):
                 if hit:
                     fox.kill()
                     wox.kill
-                    tempo_total = tempo_segundos
+                    tempo_total.append(tempo_segundos)
                     state = NOME
 
                 # Verifica se apertou alguma tecla.
