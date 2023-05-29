@@ -42,6 +42,8 @@ def tela_inicial(screen):
             all_buttons.add(botao_instrucoes)
     
     running = True
+    # Carrega música de fundo
+    pygame.mixer.music.play(loops=-1)
     while running:
 
         # Ajusta a velocidade do jogo.

@@ -2,7 +2,7 @@ from os import path
 
 # Estabelece a pasta que contem as figuras e sons.
 PERSONAGENS = path.join(path.dirname(__file__), 'assets', 'img', 'characters')
-SONS = path.join(path.dirname(__file__), 'assets', 'snd')
+SONS = path.join(path.dirname(__file__), 'assets', 'sound')
 FONTES = path.join(path.dirname(__file__), 'assets', 'fonte')
 FUNDO = path.join(path.dirname(__file__), 'assets', 'img')
 BOTAO = path.join(path.dirname(__file__), 'assets', 'img', 'botao')

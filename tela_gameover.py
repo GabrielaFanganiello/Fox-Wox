@@ -43,6 +43,11 @@ def tela_gameover(screen):
             botoes_gameover.add(botao_quit)
     
     running = True
+
+    # Carrega música de fundo
+    pygame.mixer.music.play(loops=-1)
+
+
     while running:
 
         # Ajusta a velocidade do jogo.
