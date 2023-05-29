@@ -77,7 +77,7 @@ def load_assets():
     for i in range(1,19):
         # Os arquivos de animação são numerados de 1 a 19
         filename = os.path.join(EXPLOSOES_AZUL, 'azul ({}).png'.format(i))
-        img = pygame.image.load(filename).convert()
+        img = pygame.image.load(filename).convert_alpha()
         img = pygame.transform.scale(img, (32, 32))
         explosion_blue.append(img)
     assets[MORTE_AZUL] = explosion_blue
@@ -87,7 +87,7 @@ def load_assets():
     for i in range(1,20):
         # Os arquivos de animação são numerados de 1 a 20
         filename = os.path.join(EXPLOSOES_VERMELHA, 'vermelho ({}).png'.format(i))
-        img = pygame.image.load(filename).convert()
+        img = pygame.image.load(filename).convert_alpha()
         img = pygame.transform.scale(img, (32, 32))
         explosion_red.append(img)
     assets[MORTE_VERMELHA] = explosion_red
