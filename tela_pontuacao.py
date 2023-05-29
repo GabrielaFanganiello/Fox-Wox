@@ -39,13 +39,14 @@ def tela_pontuacao(screen):
             lista_nome = linhas[1::2]
 
             for i in range(len(lista_pontuacoes)):
-                pontuados[lista_nome[i]] = lista_pontuacoes[i]
+                pontuados[lista_nome[i]] = int(lista_pontuacoes[i])
 
             for i in sorted(pontuados, key = pontuados.get):
-                if  i not in lista_nomes[i]:
+                if i not in lista_nomes:
                     lista_nomes.append(i)
                     lista_pontos.append(pontuados[i])
-
+                else:
+                    continue
 
         # Processa os eventos (mouse, teclado, botão, etc).
         for event in pygame.event.get():
@@ -57,16 +58,18 @@ def tela_pontuacao(screen):
             if event.type == pygame.KEYDOWN:
                 state = VENCEDOR
                 running = False
-            
+        
+        # Carrega imagem de fundo
         screen.blit(assets[BACKGROUND], (0,0))
 
+        # Desenha as colunas de nome e pontuacao na tela 
         nome = assets['font_media'].render("NOME: ", True, BRANCO)
         text_rect = nome.get_rect()
         text_rect.x = 50
         text_rect.centery = 50
         screen.blit(nome, text_rect)
 
-        pontuacao = assets['font_media'].render("TEMPO:", True, BRANCO)
+        pontuacao = assets['font_media'].render("PONTUAÇÃO:", True, BRANCO)
         text_rect = pontuacao.get_rect()
         text_rect.centerx = (LARG / 2) + 100
         text_rect.centery = 50
@@ -74,6 +77,7 @@ def tela_pontuacao(screen):
 
         cont_nome = 0
 
+        # Escreve os nomes e pontuaçOes dos jogadores
         for nome in lista_nomes:
             nomes = assets['font_media'].render("{0} ".format(nome), True, BRANCO)
             text_rect = nomes.get_rect()
@@ -81,7 +85,7 @@ def tela_pontuacao(screen):
             text_rect.centery = 100 + cont_nome
             screen.blit(nomes, text_rect)
 
-            cont_nome += 50
+            cont_nome += 60
 
         cont_pont = 0
         for pontuacao in lista_pontos:
@@ -91,7 +95,7 @@ def tela_pontuacao(screen):
             text_rect.centery = 100 + cont_pont
             screen.blit(pontuacoes, text_rect)
 
-            cont_pont += 50
+            cont_pont += 60
         
 
         # Depois de desenhar tudo, inverte o display.

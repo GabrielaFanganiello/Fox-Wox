@@ -80,7 +80,7 @@ def tela_gameover(screen):
                     else:
                         btn.mouse_over(False)
 
-
+        # Desenha o fundo
         screen.blit(assets[BACKGROUND], (0,0))
         botoes_gameover.draw(screen)
 
@@ -92,6 +92,7 @@ def tela_gameover(screen):
             text_rect.centery = btn.rect.centery
             screen.blit(btn_texto, text_rect)
 
+        # Escrevendo texto da tela
         tela_titulo = assets['font_media'].render("GAMEOVER:", True, BRANCO)
         text_rect = tela_titulo.get_rect()
         text_rect.centerx = LARG / 4
