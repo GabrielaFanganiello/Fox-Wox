@@ -151,5 +151,10 @@ def load_assets():
     assets[36] = pygame.image.load(path.join(TILES, 'FLOR_4.png')).convert_alpha()
     assets[37] = pygame.image.load(path.join(TILES, 'PEDRA_1.png')).convert_alpha()
     assets[38] = pygame.image.load(path.join(TILES, 'PEDRA_2.png')).convert_alpha()
+
+    # Carrega os sons do jogo
+    pygame.mixer.music.load(os.path.join(SND_DIR, 'tgfcoder-FrozenJam-SeamlessLoop.ogg'))
+    pygame.mixer.music.set_volume(0.4)
+    assets[BOOM_SOUND] = pygame.mixer.Sound(os.path.join(SND_DIR, 'expl3.wav'))
     
     return assets
