@@ -6,7 +6,7 @@ from config import *
 from assets import *
 
 
-def tela_gameover(screen):
+def tela_winner(screen):
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
 
@@ -35,11 +35,18 @@ def tela_gameover(screen):
             botao_jogo.rect.centery = 2* ALT/3
             botoes_gameover.add(botao_jogo)
 
+        if i == 1:
+            botao_pontuacao = Botao(assets, "Pontuação")
+
+            botao_pontuacao.rect.centerx = 7* LARG / 10
+            botao_pontuacao.rect.centery = 2*ALT/3
+            botoes_gameover.add(botao_pontuacao)
+
         else:
             botao_quit = Botao(assets, "QUIT")
 
-            botao_quit.rect.centerx = 7 * LARG / 10
-            botao_quit.rect.centery = 2 * ALT / 3
+            botao_quit.rect.centerx = LARG / 2
+            botao_quit.rect.centery = 7 * ALT / 8 
             botoes_gameover.add(botao_quit)
     
     running = True
@@ -61,7 +68,10 @@ def tela_gameover(screen):
                         if btn.rect.collidepoint(event.pos):
                                 state = GAME
                                 running = False
-
+                    if btn == botao_pontuacao:  # Se o botão de PONTUACAO for clicado, vai para a tela de pontuacao
+                        if btn.rect.collidepoint(event.pos):  
+                                state = PONTUACAO
+                                running = False
                     if btn == botao_quit:  # Se o botão de QUIT for clicado, fecha o jogo
                         if btn.rect.collidepoint(event.pos):  
                                 state = DONE
@@ -87,7 +97,7 @@ def tela_gameover(screen):
             text_rect.centery = btn.rect.centery
             screen.blit(btn_texto, text_rect)
 
-        tela_titulo = assets['font_media'].render("GAMEOVER:", True, BRANCO)
+        tela_titulo = assets['font_media'].render("VOCE VENCEU:", True, BRANCO)
         text_rect = tela_titulo.get_rect()
         text_rect.centerx = LARG / 4
         text_rect.centery = 100

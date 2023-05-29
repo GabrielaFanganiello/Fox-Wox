@@ -9,6 +9,7 @@ from tela_instrucoes import tela_instrucoes
 from tela_gameover import tela_gameover
 from tela_pontuacao import tela_pontuacao
 from tela_nome import tela_nome
+from tela_winner import tela_winner
 
 pygame.init()
 pygame.mixer.init()
@@ -25,6 +26,8 @@ while state != DONE:
         state = tela_jogo(window)
     elif state == INSTRUCOES:
         state = tela_instrucoes(window)
+    elif state == VENCEDOR:
+        state= tela_winner(window)
     elif state == NOME:
         state = tela_nome(window)
     elif state == GAMEOVER:

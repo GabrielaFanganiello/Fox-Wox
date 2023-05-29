@@ -71,9 +71,14 @@ def tela_jogo(screen):
                 hit_water_f = pygame.sprite.spritecollide(fox, water, False)
                 hit_water_w = pygame.sprite.spritecollide(wox, water, False)
                 hit = pygame.sprite.collide_rect(fox, wox)
-                if hit or hit_water_f or hit_water_w:
+                if hit_water_f or hit_water_w:
                     fox.kill()
                     wox.kill()
+                    state = GAMEOVER
+
+                if hit:
+                    fox.kill()
+                    wox.kill
                     tempo_total = tempo_segundos
                     state = NOME
 
