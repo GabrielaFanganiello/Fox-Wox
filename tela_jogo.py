@@ -47,7 +47,7 @@ def tela_jogo(screen):
     timer = 0
 
     # ===== Loop principal =====
-    while state != DONE and state != PONTUACAO and state != GAMEOVER:
+    while state != DONE and state != PONTUACAO and state != GAMEOVER and state != NOME:
         
         clock.tick(FPS)
 
@@ -73,7 +73,7 @@ def tela_jogo(screen):
                 if hit or hit_water_f or hit_water_w:
                     fox.kill()
                     wox.kill()
-                    state = GAMEOVER
+                    state = NOME
 
                 # Verifica se apertou alguma tecla.
                 elif event.type == pygame.KEYDOWN:

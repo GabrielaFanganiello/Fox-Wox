@@ -25,10 +25,10 @@ while state != DONE:
         state = tela_jogo(window)
     elif state == INSTRUCOES:
         state = tela_instrucoes(window)
-    elif state == GAMEOVER:
-        state = tela_gameover(window)
     elif state == NOME:
         state = tela_nome(window)
+    elif state == GAMEOVER:
+        state = tela_gameover(window)
     elif state == PONTUACAO:
         state = tela_pontuacao(window)
     else:

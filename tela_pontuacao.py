@@ -34,14 +34,14 @@ def tela_pontuacao(screen):
 
         nome = assets['font_media'].render("NOME: ", True, BRANCO)
         text_rect = nome.get_rect()
-        text_rect.x = 10
-        text_rect.centery = 10
+        text_rect.x = 50
+        text_rect.centery = 50
         screen.blit(nome, text_rect)
 
-        pontuacao = assets['font_media'].render("PONTUAÇÃO", True, BRANCO)
+        pontuacao = assets['font_media'].render("TEMPO:", True, BRANCO)
         text_rect = pontuacao.get_rect()
-        text_rect.centerx = (LARG / 2) + 10
-        text_rect.centery = 10
+        text_rect.centerx = (LARG / 2) + 100
+        text_rect.centery = 50
         screen.blit(pontuacao, text_rect)
 
         dados = assets
