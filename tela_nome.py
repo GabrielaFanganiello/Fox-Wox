@@ -65,7 +65,7 @@ def tela_nome(screen):
                     if event.key == pygame.K_RETURN:
                         # Se apertar o return armazena o nome do jogador e vai para prox tela
                         jogadores.append(nome)
-                        state = GAMEOVER
+                        state = VENCEDOR
                         done = True
                         nome = ''
 

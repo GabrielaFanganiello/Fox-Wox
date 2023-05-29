@@ -29,7 +29,7 @@ def tela_pontuacao(screen):
                 running = False
 
             if event.type == pygame.KEYDOWN:
-                state = GAMEOVER
+                state = VENCEDOR
                 running = False
             
         screen.blit(assets[BACKGROUND], (0,0))
