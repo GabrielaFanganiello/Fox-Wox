@@ -132,7 +132,24 @@ def load_assets():
     assets[17] = pygame.image.load(path.join(TILES, 'DIREITINHA_V.png')).convert_alpha()
     assets[18] = pygame.image.load(path.join(TILES, 'ESQUERDINHA_A.png')).convert_alpha()
     assets[19] = pygame.image.load(path.join(TILES, 'ESQUERDINHA_V.png')).convert_alpha()
-
-
+    assets[20] = pygame.image.load(path.join(TILES, 'CHAOA_GRAMA_QD.png')).convert_alpha()
+    assets[21] = pygame.image.load(path.join(TILES, 'CHAOA_GRAMA_QE.png')).convert_alpha()
+    assets[22] = pygame.image.load(path.join(TILES, 'CHAOA_GRAMA.png')).convert_alpha()
+    assets[23] = pygame.image.load(path.join(TILES, 'CHAOA_GRAMA_D.png')).convert_alpha()
+    assets[24] = pygame.image.load(path.join(TILES, 'CHAOA_GRAMA_E.png')).convert_alpha()
+    assets[25] = pygame.image.load(path.join(TILES, 'CHAO_GRAMA_QD.png')).convert_alpha()
+    assets[26] = pygame.image.load(path.join(TILES, 'CHAO_GRAMA_QE.png')).convert_alpha()
+    assets[27] = pygame.image.load(path.join(TILES, 'CHAO_GRAMA.png')).convert_alpha()
+    assets[28] = pygame.image.load(path.join(TILES, 'CHAO_GRAMA_D.png')).convert_alpha()
+    assets[29] = pygame.image.load(path.join(TILES, 'CHAO_GRAMA_E.png')).convert_alpha()
+    assets[30] = pygame.image.load(path.join(TILES, 'GRAMINHA_1.png')).convert_alpha()
+    assets[31] = pygame.image.load(path.join(TILES, 'GRAMINHA_2.png')).convert_alpha()
+    assets[32] = pygame.image.load(path.join(TILES, 'GRAMINHA_CHAO.png')).convert_alpha()
+    assets[33] = pygame.image.load(path.join(TILES, 'FLOR_1.png')).convert_alpha()
+    assets[34] = pygame.image.load(path.join(TILES, 'FLOR_2.png')).convert_alpha()
+    assets[35] = pygame.image.load(path.join(TILES, 'FLOR_3.png')).convert_alpha()
+    assets[36] = pygame.image.load(path.join(TILES, 'FLOR_4.png')).convert_alpha()
+    assets[37] = pygame.image.load(path.join(TILES, 'PEDRA_1.png')).convert_alpha()
+    assets[38] = pygame.image.load(path.join(TILES, 'PEDRA_2.png')).convert_alpha()
     
     return assets

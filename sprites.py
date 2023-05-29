@@ -25,7 +25,7 @@ class Fox(pygame.sprite.Sprite):
         self.blocks = blocks
 
         # Posiciona a raposa
-        self.rect.centerx = 1100
+        self.rect.centerx = 1150
         self.rect.bottom = ALT
 
         # Velocidade da raposa
@@ -111,7 +111,7 @@ class Wox(pygame.sprite.Sprite):
         self.blocks = blocks
 
         # Posiciona a raposa
-        self.rect.centerx = 100
+        self.rect.centerx = 65
         self.rect.bottom = ALT
 
         # Velocidade da raposa
