@@ -14,6 +14,7 @@ def tela_jogo(screen):
     #importando os assets criados 
     assets = load_assets()
 
+    #importando os sprites criados 
     all_sprites = pygame.sprite.Group()
     groups = {}
     groups['all_sprites'] = all_sprites
@@ -23,6 +24,7 @@ def tela_jogo(screen):
     tiles = pygame.sprite.Group()
     blocks = pygame.sprite.Group()
     water = pygame.sprite.Group()
+
     # Cria tiles de acordo com o mapa
     for row in range(len(MAP)):
         for column in range(len(MAP[row])):
@@ -44,12 +46,15 @@ def tela_jogo(screen):
 
     state = PLAYING
     keys_down = {}
+
+    # Variáveis criadas para definição de segundos conforme os FPS do jogo
     tempo_segundos = 0
     timer = 0
 
     # ===== Loop principal =====
     # Carrega música de fundo
     pygame.mixer.music.play(loops=-1) 
+
     while state != DONE and state != PONTUACAO and state != GAMEOVER and state != NOME:
         
         clock.tick(FPS)
@@ -58,8 +63,9 @@ def tela_jogo(screen):
             timer += 1
 
         else:
+            # A cada 60 FPS, conta 1 segundo
             tempo_segundos += 1
-            timer = 60
+            timer = 0
 
         # ----- Trata eventos
         for event in pygame.event.get():
@@ -155,7 +161,7 @@ def tela_jogo(screen):
 
 
         # ----- Posicionando o tempo na tela
-        tempo = assets['font_tempo'].render("Tempo: "+str(tempo_segundos / 100), True, BRANCO)
+        tempo = assets['font_tempo'].render("Tempo: "+str(tempo_segundos), True, BRANCO)
         text_rect = tempo.get_rect()
         text_rect.x = 10
         text_rect.centery = 20
