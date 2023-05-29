@@ -30,6 +30,10 @@ def tela_nome(screen):
         botoes_nome.add(botao_nome)
 
     done = False
+
+    # Carrega música de fundo
+    pygame.mixer.music.play(loops=-1)
+
     while not done:
 
         # Ajusta a velocidade do jogo.

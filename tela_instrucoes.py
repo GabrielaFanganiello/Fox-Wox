@@ -15,6 +15,10 @@ def tela_instrucoes(screen):
     instrucoes_rect = instrucoes.get_rect()
 
     running = True
+    
+    # Carrega música de fundo
+    pygame.mixer.music.play(loops=-1)
+
     while running:
 
         # Ajusta a velocidade do jogo.

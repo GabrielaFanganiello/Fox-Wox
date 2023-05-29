@@ -13,6 +13,7 @@ FOX_R_D = 'vermelha_direita'
 BLUE_DIC = 'dicionario_rap_azul'
 PONT = 'pontuacao'
 INSTRU = 'instrucoes'
+MUSICA = 'musica'
 
 # TILES
 # Chao vermelho
@@ -151,5 +152,10 @@ def load_assets():
     assets[36] = pygame.image.load(path.join(TILES, 'FLOR_4.png')).convert_alpha()
     assets[37] = pygame.image.load(path.join(TILES, 'PEDRA_1.png')).convert_alpha()
     assets[38] = pygame.image.load(path.join(TILES, 'PEDRA_2.png')).convert_alpha()
+
+    # Carrega os sons do jogo
+    pygame.mixer.music.load(os.path.join(SONS, 'musica.wav'))
+    pygame.mixer.music.set_volume(1.0)
+    assets[MUSICA] = pygame.mixer.Sound(os.path.join(SONS, 'musica.wav'))
     
     return assets
