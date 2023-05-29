@@ -5,8 +5,13 @@ from sprites import Botao
 from config import *
 from assets import *
 from tela_jogo import *
+from tela_nome import *
 
 pontuados = {}
+
+for i in range(len(tempo_total)):
+    pontuados[jogadores[i]] = tempo_total[i]
+print(pontuados)
 
 def tela_pontuacao(screen):
 

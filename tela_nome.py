@@ -4,6 +4,7 @@ from os import path
 from sprites import Botao
 from config import *
 from assets import *
+from tela_pontuacao import *
 
 jogadores = []
 
@@ -76,8 +77,8 @@ def tela_nome(screen):
                     else:
                         # Escrevendo o nome com o teclado do computador 
                         nome += event.unicode
-
-
+        jogadores.append(nome)
+        
         screen.blit(assets[BACKGROUND], (0,0))
 
         # Escrevendo texto dos botões
