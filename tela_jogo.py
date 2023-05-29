@@ -45,6 +45,7 @@ def tela_jogo(screen):
     keys_down = {}
     tempo_segundos = 0
     timer = 0
+    tempo_total = 0
 
     # ===== Loop principal =====
     while state != DONE and state != PONTUACAO and state != GAMEOVER and state != NOME:
@@ -73,6 +74,7 @@ def tela_jogo(screen):
                 if hit or hit_water_f or hit_water_w:
                     fox.kill()
                     wox.kill()
+                    tempo_total = tempo_segundos
                     state = NOME
 
                 # Verifica se apertou alguma tecla.
@@ -112,7 +114,7 @@ def tela_jogo(screen):
                             wox.speedx += VELO_X
                         if event.key == pygame.K_d:
                             wox.speedx -= VELO_X
-
+        
         # ----- Atualiza estado do jogo
         all_sprites.update()
 

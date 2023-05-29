@@ -6,8 +6,10 @@ from config import *
 from assets import *
 from tela_jogo import *
 
+pontuados = {}
 
 def tela_pontuacao(screen):
+
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
 

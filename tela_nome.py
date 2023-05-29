@@ -17,11 +17,12 @@ def tela_nome(screen):
 
     botoes_nome = pygame.sprite.Group()
 
+    # Definindo se o botao foi ativado
     ativado = False
 
     # Criando primeira fileira com 1 botões
     for i in range(1):
-        botao_nome = Botao(assets, "NOME")
+        botao_nome = Botao(assets, "INSIRA OS NOMES")
 
         botao_nome.rect.centerx = LARG / 2
         botao_nome.rect.centery = ALT / 2
@@ -37,34 +38,55 @@ def tela_nome(screen):
         for event in pygame.event.get():
             # Verifica se foi fechado.
             if event.type == pygame.QUIT:
+                state = DONE
                 done = True
 
+            # Verifica se foi apertado o botão 
             if event.type == pygame.MOUSEBUTTONDOWN:
+                # Se o botao foi ativado, apaga o botao de inserir o nome 
                 if botao_nome.rect.collidepoint(event.pos):
-                    ativado = not ativado
+                    ativado = True
+                    botao_nome.kill()
 
                 else: 
                     ativado = False
 
-            if event.type == pygame.KEYDOWN:
-                if ativado:
-                    botao_nome.mouse_over(True)
+            if event.type == pygame.MOUSEMOTION:
+                #Alterando cor do botão se o mouse passa por cima
+                for btn in botoes_nome:
+                    if btn.rect.collidepoint(event.pos):
+                        btn.mouse_over(True)
+                    else:
+                        btn.mouse_over(False)
 
+            if event.type == pygame.KEYDOWN:
+                # Verifica o que está sendo digitado
+                if ativado:
                     if event.key == pygame.K_RETURN:
+                        # Se apertar o return armazena o nome do jogador e vai para prox tela
                         jogadores.append(nome)
                         state = GAMEOVER
                         done = True
-                        print(jogadores)
                         nome = ''
 
                     elif event.key == pygame.K_BACKSPACE:
+                        # Garante que se houver erro de digitacao, pode apagar
                         nome = nome[:-1]
 
                     else:
+                        # Escrevendo o nome com o teclado do computador 
                         nome += event.unicode
 
 
         screen.blit(assets[BACKGROUND], (0,0))
+
+        # Escrevendo texto dos botões
+        for btn in botoes_nome:
+            btn_texto = assets['font'].render(f"{btn.nome_do_jogo}", True, BRANCO)
+            text_rect = btn_texto.get_rect()
+            text_rect.centerx = btn.rect.centerx
+            text_rect.centery = btn.rect.centery
+            screen.blit(btn_texto, text_rect)
 
         txt_surface = assets['font_media'].render(nome, True, BRANCO)
         botoes_nome.draw(screen)
