@@ -19,7 +19,7 @@ def tela_jogo(screen):
     groups['all_sprites'] = all_sprites
 
     # Cria um grupo de tiles.
-    tipos_blocks = [1, 2, 3, 12, 13, 14, 15, 16, 17, 18, 19]
+    tipos_blocks = [1, 2, 3, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
     tiles = pygame.sprite.Group()
     blocks = pygame.sprite.Group()
     water = pygame.sprite.Group()
