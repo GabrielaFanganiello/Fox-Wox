@@ -2,18 +2,16 @@ import pygame
 import os
 from config import *
 
+# ---- Facilitando direcionamento dos assets ----
 
 BACKGROUND = 'background'
 FOX_B = 'raposa_azul'
 FOX_R = 'raposa_vermelha'
-FOX_B_E = 'azul_esquerda'
-FOX_B_D = 'azul_direita'
-FOX_R_E  = 'vermelha_esquerda'
-FOX_R_D = 'vermelha_direita'
-BLUE_DIC = 'dicionario_rap_azul'
-PONT = 'pontuacao'
 INSTRU = 'instrucoes'
 MUSICA = 'musica'
+MORTE_AZUL = 'explosao_azul'
+MORTE_VERMELHA = 'explosao_vermelha'
+
 
 # TILES
 # Chao vermelho
@@ -74,6 +72,26 @@ BOLHAS = 'BOLHAS'
 def load_assets():
     assets = {}
 
+    # Animação morte da raposa azul
+    explosion_blue = []
+    for i in range(1,19):
+        # Os arquivos de animação são numerados de 1 a 19
+        filename = os.path.join(EXPLOSOES_AZUL, 'azul ({}).png'.format(i))
+        img = pygame.image.load(filename).convert()
+        img = pygame.transform.scale(img, (32, 32))
+        explosion_blue.append(img)
+    assets[MORTE_AZUL] = explosion_blue
+
+    # Animação morte da raposa vermelha
+    explosion_red = []
+    for i in range(1,20):
+        # Os arquivos de animação são numerados de 1 a 20
+        filename = os.path.join(EXPLOSOES_VERMELHA, 'vermelho ({}).png'.format(i))
+        img = pygame.image.load(filename).convert()
+        img = pygame.transform.scale(img, (32, 32))
+        explosion_red.append(img)
+    assets[MORTE_VERMELHA] = explosion_red
+
     # Pegando imagem do botão normal
     assets['btn'] = pygame.image.load(os.path.join(BOTAO, 'btn1.png')).convert_alpha()
     
@@ -99,19 +117,10 @@ def load_assets():
     # Carregando imagens da raposa azul
     assets[FOX_B] = pygame.image.load(os.path.join(PERSONAGENS, 'raposa_a_frente', 'tile000.png')).convert_alpha()
     assets[FOX_B] = pygame.transform.scale(assets['raposa_azul'], (34, 38))
-    assets[FOX_B_E] = pygame.image.load(os.path.join(PERSONAGENS, 'raposa_a_esquerda', 'tile000.png')).convert_alpha()
-    assets[FOX_B_E] = pygame.transform.scale(assets['azul_esquerda'], (75, 75))
-    assets[FOX_B_D] = pygame.image.load(os.path.join(PERSONAGENS, 'raposa_a_direita', 'tile000.png')).convert_alpha()
-    assets[FOX_B_D] = pygame.transform.scale(assets['azul_direita'], (75, 75))
-    
 
     # Carregando imagens da raposa vermelha
     assets[FOX_R] = pygame.image.load(os.path.join(PERSONAGENS, 'raposa_v_frente', 'tile000.png')).convert_alpha()
     assets[FOX_R] = pygame.transform.scale(assets['raposa_vermelha'], (34, 38))
-    assets[FOX_R_E] = pygame.image.load(os.path.join(PERSONAGENS, 'raposa_v_esquerda', 'tile000.png')).convert_alpha()
-    assets[FOX_R_E] = pygame.transform.scale(assets['vermelha_esquerda'], (75, 75))
-    assets[FOX_R_D] = pygame.image.load(os.path.join(PERSONAGENS, 'raposa_v_direita', 'tile000.png')).convert_alpha()
-    assets[FOX_R_D] = pygame.transform.scale(assets['vermelha_direita'], (75, 75))
 
     # Carregando tiles
     assets[1] = pygame.image.load(path.join(TILES, 'CHAO_V.png')).convert_alpha()

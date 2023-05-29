@@ -73,10 +73,24 @@ def tela_jogo(screen):
                 hit_water_f = pygame.sprite.spritecollide(fox, water, False)
                 hit_water_w = pygame.sprite.spritecollide(wox, water, False)
                 hit = pygame.sprite.collide_rect(fox, wox)
-                if hit_water_f or hit_water_w:                      # Verifica se uma raposa caiu na água
+                if hit_water_f:                      # Verifica se uma raposa caiu na água
                     fox.kill()
                     wox.kill()
-                    state = GAMEOVER 
+                    explosao_r = Explosion_red(fox.rect.center, assets)
+                    all_sprites.add(explosao_r)
+                    state = DYING
+                    explosion_tick = pygame.time.get_ticks()
+                    explosion_duration = explosao_r.frame_ticks * len(explosao_r.explosion_red) 
+
+                if hit_water_w:
+                    fox.kill()
+                    wox.kill()
+                    explosao_b = Explosion_blue(wox.rect.center, assets)
+                    all_sprites.add(explosao_b)
+                    state = DYING
+                    explosion_tick = pygame.time.get_ticks()
+                    explosion_duration = explosao_b.frame_ticks * len(explosao_b.explosion_blue) 
+
 
                 if hit:                                             # Verifica se as raposas se encontraram
                     fox.kill()
@@ -123,6 +137,11 @@ def tela_jogo(screen):
                             wox.speedx += VELO_X
                         if event.key == pygame.K_d:
                             wox.speedx -= VELO_X
+
+            elif state == DYING:
+                    now = pygame.time.get_ticks()
+                    if now - explosion_tick > explosion_duration:
+                        state = GAMEOVER 
         
         # ----- Atualiza estado do jogo
         all_sprites.update()

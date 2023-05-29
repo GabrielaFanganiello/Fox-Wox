@@ -6,6 +6,8 @@ SONS = path.join(path.dirname(__file__), 'assets', 'sound')
 FONTES = path.join(path.dirname(__file__), 'assets', 'fonte')
 FUNDO = path.join(path.dirname(__file__), 'assets', 'img')
 BOTAO = path.join(path.dirname(__file__), 'assets', 'img', 'botao')
+EXPLOSOES_AZUL = path.join(path.dirname(__file__), 'assets', 'img', 'explosoes', 'explosao_azul')
+EXPLOSOES_VERMELHA = path.join(path.dirname(__file__), 'assets', 'img', 'explosoes', 'explosao_vermelha')
 
 TILES = path.join(path.dirname(__file__), 'assets', 'img', 'tiles')
 
@@ -99,3 +101,8 @@ PONTUACAO = 5
 DONE = 6
 NOME = 7
 VENCEDOR = 8
+
+# Possíveis estados dos jogadores
+STILL = 9
+JUMPING = 10
+DYING = 11

@@ -4,12 +4,6 @@ from pygame.sprite import Group
 from config import *
 from assets import *
 
-# Possíveis estados dos jogadores
-STILL = 9
-JUMPING = 10
-RUNNING = 11
-FALLING = 12
-
 class Fox(pygame.sprite.Sprite):
     def __init__(self, groups, assets, blocks):
         # Construtor da classe mãe (Sprite).
@@ -39,10 +33,6 @@ class Fox(pygame.sprite.Sprite):
         ## Atualização da posição da raposa
 
         # Atualiza a velocidade aplicando a aceleração da gravidade
-
-        if self.speedy > 0:
-            self.state = FALLING
-
         self.speedy += GRAVITY
         self.rect.y += self.speedy 
 
@@ -125,10 +115,6 @@ class Wox(pygame.sprite.Sprite):
         ## Atualização da posição da raposa
 
         # Atualiza a velocidade aplicando a aceleração da gravidade
-
-        if self.speedy > 0:
-            self.state = FALLING
-
         self.speedy += GRAVITY
         self.rect.y += self.speedy 
 
@@ -227,3 +213,95 @@ class Tile(pygame.sprite.Sprite):
         # Posiciona o tile
         self.rect.x = TILE_SIZE * column
         self.rect.y = TILE_SIZE * row
+
+# Classe que representa a morte da raposa azul
+class Explosion_blue(pygame.sprite.Sprite):
+    def __init__(self, center, assets):
+    
+        pygame.sprite.Sprite.__init__(self)
+
+        # Armazena a animação 
+        self.explosion_blue = assets[MORTE_AZUL]
+
+        # Inicia com a primeira imagem 
+        self.frame = 1  # índice animação
+        self.image = self.explosion_blue[self.frame] 
+        self.rect = self.image.get_rect()
+        self.rect.center = center  # Posicionando
+
+        # momento em que a imagem foi mostrada
+        self.last_update = pygame.time.get_ticks()
+
+        # Controle de ticks de animação: troca de imagem a cada self.frame_ticks milissegundos.
+        self.frame_ticks = 50
+
+    def update(self):
+        # Verifica o tick atual
+        now = pygame.time.get_ticks()
+        # Verifica quantos ticks se passaram desde a ultima mudança de frame
+        elapsed_ticks = now - self.last_update
+
+        # Se já está na hora de mudar de imagem
+        if elapsed_ticks > self.frame_ticks:
+            # tick da nova imagem.
+            self.last_update = now
+
+            # Avança um quadro.
+            self.frame += 1
+
+            # Verifica se já chegou no final da animação.
+            if self.frame == len(self.explosion_blue):
+                # Se sim, tchau explosão!
+                self.kill()
+            else:
+                # Se ainda não chegou ao fim da explosão, troca de imagem.
+                center = self.rect.center
+                self.image = self.explosion_blue[self.frame]
+                self.rect = self.image.get_rect()
+                self.rect.center = center
+
+# Classe que representa a morte da raposa azul
+class Explosion_red(pygame.sprite.Sprite):
+    def __init__(self, center, assets):
+    
+        pygame.sprite.Sprite.__init__(self)
+
+        # Armazena a animação 
+        self.explosion_red = assets[MORTE_VERMELHA]
+
+        # Inicia com a primeira imagem 
+        self.frame = 1  # índice animação
+        self.image = self.explosion_red[self.frame] 
+        self.rect = self.image.get_rect()
+        self.rect.center = center  # Posicionando
+
+        # momento em que a imagem foi mostrada
+        self.last_update = pygame.time.get_ticks()
+
+        # Controle de ticks de animação: troca de imagem a cada self.frame_ticks milissegundos.
+        self.frame_ticks = 50
+
+    def update(self):
+        # Verifica o tick atual
+        now = pygame.time.get_ticks()
+        # Verifica quantos ticks se passaram desde a ultima mudança de frame
+        elapsed_ticks = now - self.last_update
+
+        # Se já está na hora de mudar de imagem
+        if elapsed_ticks > self.frame_ticks:
+            # tick da nova imagem.
+            self.last_update = now
+
+            # Avança um quadro.
+            self.frame += 1
+
+            # Verifica se já chegou no final da animação.
+            if self.frame == len(self.explosion_red):
+                # Se sim, tchau explosão!
+                self.kill()
+            else:
+                # Se ainda não chegou ao fim da explosão, troca de imagem.
+                center = self.rect.center
+                self.image = self.explosion_red[self.frame]
+                self.rect = self.image.get_rect()
+                self.rect.center = center
