@@ -66,6 +66,8 @@ def tela_nome(screen):
                     if event.key == pygame.K_RETURN:
                         # Se apertar o return armazena o nome do jogador e vai para prox tela
                         jogadores.append(nome)
+                        with open('pontuacao.txt', 'a') as arquivo:
+                            arquivo.write('{0} '.format(nome))
                         state = VENCEDOR
                         done = True
                         nome = ''
@@ -78,7 +80,7 @@ def tela_nome(screen):
                         # Escrevendo o nome com o teclado do computador 
                         nome += event.unicode
         jogadores.append(nome)
-        
+
         screen.blit(assets[BACKGROUND], (0,0))
 
         # Escrevendo texto dos botões

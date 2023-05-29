@@ -19,7 +19,7 @@ def tela_jogo(screen):
     groups['all_sprites'] = all_sprites
 
     # Cria um grupo de tiles.
-    tipos_blocks = [1, 2, 3, 12, 13, 14, 15, 16, 17, 18, 19]
+    tipos_blocks = [1, 2, 3, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
     tiles = pygame.sprite.Group()
     blocks = pygame.sprite.Group()
     water = pygame.sprite.Group()
@@ -80,6 +80,8 @@ def tela_jogo(screen):
                     fox.kill()
                     wox.kill
                     tempo_total.append(tempo_segundos)
+                    with open('pontuacao.txt', 'a') as arquivo:
+                        arquivo.write('{0} '.format(tempo_segundos))
                     state = NOME
 
                 # Verifica se apertou alguma tecla.
@@ -141,4 +143,3 @@ def tela_jogo(screen):
         pygame.display.update()
 
     return state
-        
