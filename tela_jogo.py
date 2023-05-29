@@ -48,8 +48,7 @@ def tela_jogo(screen):
     keys_down = {}
 
     # Variáveis criadas para definição de segundos conforme os FPS do jogo
-    tempo_segundos = 0
-    timer = 0
+    tempo_ponto = 0
 
     # ===== Loop principal =====
     # Carrega música de fundo
@@ -59,13 +58,8 @@ def tela_jogo(screen):
         
         clock.tick(FPS)
 
-        if timer < 60:
-            timer += 1
-
-        else:
-            # A cada 60 FPS, conta 1 segundo
-            tempo_segundos += 1
-            timer = 0
+        # A cada FPS, conta 1 ponto
+        tempo_ponto += 1
 
         # ----- Trata eventos
         for event in pygame.event.get():
@@ -101,9 +95,9 @@ def tela_jogo(screen):
                 if hit:                                             # Verifica se as raposas se encontraram
                     fox.kill()
                     wox.kill
-                    tempo_total.append(tempo_segundos)              # Guarda o tempo que levou para ganhar
+                    tempo_total.append(tempo_ponto)              # Guarda o tempo que levou para ganhar
                     with open('pontuacao.txt', 'a') as arquivo:
-                        arquivo.write('{0} '.format(tempo_segundos))
+                        arquivo.write('{0} '.format(tempo_ponto))
                     state = NOME
 
                 # Verifica se apertou alguma tecla.
@@ -161,7 +155,7 @@ def tela_jogo(screen):
 
 
         # ----- Posicionando o tempo na tela
-        tempo = assets['font_tempo'].render("Tempo: "+str(tempo_segundos), True, BRANCO)
+        tempo = assets['font_tempo'].render("Tempo: "+str(tempo_ponto/100), True, BRANCO)
         text_rect = tempo.get_rect()
         text_rect.x = 10
         text_rect.centery = 20
