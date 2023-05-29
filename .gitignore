@@ -102,3 +102,7 @@ __pycache__/config.cpython-39.pyc
 __pycache__/tela_inicial.cpython-39.pyc
 __pycache__/tela_instrucoes.cpython-39.pyc
 __pycache__/tela_jogo.cpython-39.pyc
+__pycache__/tela_gameover.cpython-311.pyc
+__pycache__/tela_instrucoes.cpython-311.pyc
+__pycache__/tela_nome.cpython-311.pyc
+__pycache__/tela_winner.cpython-311.pyc
