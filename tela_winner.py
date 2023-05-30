@@ -63,16 +63,16 @@ def tela_winner(screen):
                 for btn in botoes_gameover:
                     if btn == botao_jogo:   # Se o botão de JOGO for clicado, vai para a tela do jogo
                         if btn.rect.collidepoint(event.pos):
-                                state = GAME
-                                running = False
+                            state = GAME
+                            running = False
                     if btn == botao_pontuacao:  # Se o botão de PONTUACAO for clicado, vai para a tela de pontuacao
                         if btn.rect.collidepoint(event.pos):  
-                                state = PONTUACAO
-                                running = False
+                            state = PONTUACAO
+                            running = False
                     if btn == botao_quit:  # Se o botão de QUIT for clicado, fecha o jogo
                         if btn.rect.collidepoint(event.pos):  
-                                state = INIT
-                                running = False
+                            state = INIT
+                            running = False
 
             # Cria animação quando o mouse passa em cima do botão
             if event.type == pygame.MOUSEMOTION:

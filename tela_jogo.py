@@ -100,9 +100,9 @@ def tela_jogo(screen):
                     wox.kill()
                     explosao_b = Explosion_blue(wox.rect.center, assets)
                     all_sprites.add(explosao_b)
-                    state = DYING
                     explosion_tick = pygame.time.get_ticks()
-                    explosion_duration = explosao_b.frame_ticks * len(explosao_b.explosion_blue) 
+                    explosion_duration = explosao_b.frame_ticks * len(explosao_b.explosion_blue)
+                    state = DYING 
 
 
                 # Verifica se apertou alguma tecla.
@@ -143,10 +143,10 @@ def tela_jogo(screen):
                         if event.key == pygame.K_d:
                             wox.speedx -= VELO_X
 
-            elif state == DYING:
-                    now = pygame.time.get_ticks()
-                    if now - explosion_tick > explosion_duration:
-                        state = GAMEOVER 
+            if state == DYING:
+                now = pygame.time.get_ticks()
+                if now - explosion_tick > explosion_duration:
+                    state = GAMEOVER 
         
         # ----- Atualiza estado do jogo
         all_sprites.update()
