@@ -27,7 +27,7 @@ def tela_nome(screen):
         botao_nome = Botao(assets, "INSIRA OS NOMES")
 
         botao_nome.rect.centerx = LARG / 2
-        botao_nome.rect.centery = ALT / 2
+        botao_nome.rect.centery = 2*ALT / 3
         botoes_nome.add(botao_nome)
 
     done = False
@@ -102,8 +102,8 @@ def tela_nome(screen):
 
         tela_titulo = assets['font_media'].render("INSIRA O NOME DOS JOGADORES:", True, BRANCO)
         text_rect = tela_titulo.get_rect()
-        text_rect.x = 0
-        text_rect.centery = 100
+        text_rect.x = 100
+        text_rect.centery = 150
         screen.blit(tela_titulo, text_rect)
 
         # Depois de desenhar tudo, inverte o display.
