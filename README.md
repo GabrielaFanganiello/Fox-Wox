@@ -36,6 +36,8 @@ python ./jogo.py
 
 ## Link para o vídeo de uma gameplay curta:
 
+[Clique aqui!][video]
+
 
 ## Agradecimentos e referências:
 
@@ -52,3 +54,4 @@ Obrigado profa. [Barbara Agena][barbara] pelas ajudas e atendimentos para tirar 
 [repot]: https://github.com/Insper/pygame-snippets
 [python]: https://www.python.org
 [PyGame]: https://www.pygame.org/news
+[video]: https://youtu.be/_L2VbmzVPHY
