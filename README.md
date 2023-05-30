@@ -48,7 +48,6 @@ Obrigado [Toshi Kurauchi][toshi], pelo [repositório de snippets][repot], de ond
 Obrigado prof. [Barbara Agena][barbara] pelas ajudas em sala.
 
 
-de onde tiramos muitas
 [gabi]: https://github.com/GabrielaFanganiello
 [rick]: https://github.com/Rkzzin
 [luana]: https://github.com/LuanaPLGuimaraes
@@ -56,6 +55,4 @@ de onde tiramos muitas
 [barbara]: https://github.com/BarbaraTieko
 [repot]: https://github.com/Insper/pygame-snippets
 [python]: https://www.python.org
-[PyGame]: https://www.pygame.org/news~
-
-
+[PyGame]: https://www.pygame.org/news
