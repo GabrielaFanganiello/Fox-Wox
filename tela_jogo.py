@@ -68,12 +68,25 @@ def tela_jogo(screen):
             if event.type == pygame.QUIT:
                 state = DONE
 
-            # Só verifica o teclado se está no estado de jogo
+            # Só verifica ações caso estiver no jogo
             if state == PLAYING:
+                # Verifica colisões entre as raposas ou água
                 hit_water_f = pygame.sprite.spritecollide(fox, water, False)
                 hit_water_w = pygame.sprite.spritecollide(wox, water, False)
                 hit = pygame.sprite.collide_rect(fox, wox)
-                if hit_water_f:                      # Verifica se uma raposa caiu na água
+                # Verifica se as raposas se encontraram
+                if hit:
+                    fox.kill()
+                    wox.kill
+                    tempo_total.append(tempo_ponto)                     # Guarda o tempo que levou para ganhar
+
+                    # Escreve o tempo no arquivo
+                    with open('pontuacao.txt', 'a') as arquivo:
+                        arquivo.write('{0} '.format(tempo_ponto))
+                    state = NOME
+
+                # Verifica se as raposas colidiram com a água
+                elif hit_water_f:                      
                     fox.kill()
                     wox.kill()
                     explosao_r = Explosion_red(fox.rect.center, assets)
@@ -82,7 +95,7 @@ def tela_jogo(screen):
                     explosion_tick = pygame.time.get_ticks()
                     explosion_duration = explosao_r.frame_ticks * len(explosao_r.explosion_red) 
 
-                if hit_water_w:
+                elif hit_water_w:
                     fox.kill()
                     wox.kill()
                     explosao_b = Explosion_blue(wox.rect.center, assets)
@@ -91,14 +104,6 @@ def tela_jogo(screen):
                     explosion_tick = pygame.time.get_ticks()
                     explosion_duration = explosao_b.frame_ticks * len(explosao_b.explosion_blue) 
 
-
-                if hit:                                             # Verifica se as raposas se encontraram
-                    fox.kill()
-                    wox.kill
-                    tempo_total.append(tempo_ponto)              # Guarda o tempo que levou para ganhar
-                    with open('pontuacao.txt', 'a') as arquivo:
-                        arquivo.write('{0} '.format(tempo_ponto))
-                    state = NOME
 
                 # Verifica se apertou alguma tecla.
                 elif event.type == pygame.KEYDOWN:
@@ -147,15 +152,13 @@ def tela_jogo(screen):
         all_sprites.update()
 
         # ----- Gera saídas
-
-        # Desenhando os tiles e os personagens
+        # Desenhando os tiles, os personagens e o fundo
         screen.fill('#382c54')
         tiles.draw(screen)
         all_sprites.draw(screen)
 
-
-        # ----- Posicionando o tempo na tela
-        tempo = assets['font_tempo'].render("Tempo: "+str(tempo_ponto/100), True, BRANCO)
+        # ----- Posicionando a pontuação na tela
+        tempo = assets['font_tempo'].render("Pontuação: "+str(tempo_ponto/100), True, BRANCO)
         text_rect = tempo.get_rect()
         text_rect.x = 10
         text_rect.centery = 20

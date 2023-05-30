@@ -8,6 +8,7 @@ from tela_pontuacao import *
 
 jogadores = []
 
+# Se os jogadores se encontrarem, o jogo acaba
 def tela_nome(screen):
     nome = ''
 
@@ -18,10 +19,10 @@ def tela_nome(screen):
 
     botoes_nome = pygame.sprite.Group()
 
-    # Definindo se o botao foi ativado
+    # Definindo se o botão foi ativado
     ativado = False
 
-    # Criando primeira fileira com 1 botões
+    # Criando primeira fileira com 1 botão
     for i in range(1):
         botao_nome = Botao(assets, "INSIRA OS NOMES")
 
@@ -52,7 +53,6 @@ def tela_nome(screen):
                 if botao_nome.rect.collidepoint(event.pos):
                     ativado = True
                     botao_nome.kill()
-
                 else: 
                     ativado = False
 
@@ -68,7 +68,7 @@ def tela_nome(screen):
                 # Verifica o que está sendo digitado
                 if ativado:
                     if event.key == pygame.K_RETURN:
-                        # Se apertar o return armazena o nome do jogador e vai para prox tela
+                        # Se apertar o return armazena o nome do jogador e vai para próxima tela
                         jogadores.append(nome)
                         with open('pontuacao.txt', 'a') as arquivo:
                             arquivo.write('{0} '.format(nome))
@@ -77,7 +77,7 @@ def tela_nome(screen):
                         nome = ''
 
                     elif event.key == pygame.K_BACKSPACE:
-                        # Garante que se houver erro de digitacao, pode apagar
+                        # Garante que se houver erro de digitação, pode apagar
                         nome = nome[:-1]
 
                     else:
