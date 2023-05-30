@@ -12,9 +12,8 @@ Os desenvolvedores do projeto são:
 
 Fox e Wox são duas raposas que se perderam na floresta e precisam se encontrar.
 
----
 
-## Para roda o jogo:
+## Para rodar o jogo:
 
 - Primeiro, instale o software do [Python 3][python];
 - Importe a biblioteca [PyGame][PyGame] através do comendo:
@@ -35,17 +34,14 @@ git clone https://github.com/Rkzzin/Fox-Wox-Pygame.git
 python ./jogo.py
 ```
 
----
-
 ## Link para o vídeo de uma gameplay curta:
 
-
----
 
 ## Agradecimentos e referências:
 
 Obrigado [Toshi Kurauchi][toshi], pelo [repositório de snippets][repot], de onde tiramos ideias para a lógica de nosso jogo.
-Obrigado prof. [Barbara Agena][barbara] pelas ajudas em sala.
+
+Obrigado profa. [Barbara Agena][barbara] pelas ajudas e atendimentos para tirar dúvidas.
 
 
 [gabi]: https://github.com/GabrielaFanganiello
