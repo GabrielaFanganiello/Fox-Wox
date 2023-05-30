@@ -112,16 +112,19 @@ def tela_jogo(screen):
 
 
                     # Verifica qual tecla foi apertada, comandos raposa vermelha.
-                    if event.key == pygame.K_UP:
+                    if event.key == pygame.K_SPACE:
                         fox.jump()
+                        wox.jump()
+                    # if event.key == pygame.K_UP:
+                    #     fox.jump()
                     if event.key == pygame.K_LEFT:
                         fox.speedx -= VELO_X
                     if event.key == pygame.K_RIGHT:
                         fox.speedx += VELO_X
                     
                     # Verifica qual tecla foi apertada, comandos raposa azul.
-                    if event.key == pygame.K_w:
-                        wox.jump()
+                    # if event.key == pygame.K_w:
+                    #     wox.jump()
                     if event.key == pygame.K_a:
                         wox.speedx -= VELO_X
                     if event.key == pygame.K_d:
