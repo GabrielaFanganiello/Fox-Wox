@@ -8,6 +8,8 @@ FUNDO = path.join(path.dirname(__file__), 'assets', 'img')
 BOTAO = path.join(path.dirname(__file__), 'assets', 'img', 'botao')
 EXPLOSOES_AZUL = path.join(path.dirname(__file__), 'assets', 'img', 'explosoes', 'explosao_azul')
 EXPLOSOES_VERMELHA = path.join(path.dirname(__file__), 'assets', 'img', 'explosoes', 'explosao_vermelha')
+
+# Link para a página do criador BUCH que criou o tileset usado neste projeto: https://opengameart.org/users/buch
 TILES = path.join(path.dirname(__file__), 'assets', 'img', 'tiles')
 
 # Dados gerais do jogo.
