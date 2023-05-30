@@ -1,12 +1,13 @@
 from os import path
 
-# Estabelece a pasta que contem as figuras e sons.
+# Estabelece a pasta que contem as imagens, fontes e sons.
 PERSONAGENS = path.join(path.dirname(__file__), 'assets', 'img', 'characters')
 SONS = path.join(path.dirname(__file__), 'assets', 'sound')
 FONTES = path.join(path.dirname(__file__), 'assets', 'fonte')
 FUNDO = path.join(path.dirname(__file__), 'assets', 'img')
 BOTAO = path.join(path.dirname(__file__), 'assets', 'img', 'botao')
-
+EXPLOSOES_AZUL = path.join(path.dirname(__file__), 'assets', 'img', 'explosoes', 'explosao_azul')
+EXPLOSOES_VERMELHA = path.join(path.dirname(__file__), 'assets', 'img', 'explosoes', 'explosao_vermelha')
 TILES = path.join(path.dirname(__file__), 'assets', 'img', 'tiles')
 
 # Dados gerais do jogo.
@@ -16,7 +17,6 @@ FPS = 120                   # Frames por segundo
 GRAVITY = 0.2               # Gravidade
 VELO_X = 3.0                # Velocidade no eixo x
 TILE_SIZE = 32              # Tamanho do tile (cada tile é um quadrado de 32x32 pixels)
-
 
 # Define algumas variáveis com as cores básicas
 BRANCO = (255, 255, 255)
@@ -66,7 +66,7 @@ FLOR_4 = 36
 PEDRA_1 = 37
 PEDRA_2 = 38
 
-# Define o mapa com os tipos de tiles
+# Define o mapa com base nos tipos de tiles
 MAP = [
     [10, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 11],
     [7, 6, 31, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 30, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 31, 6, 6, 6, 8],
@@ -89,7 +89,7 @@ MAP = [
     [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 16, 3, 3, 5, 3, 3, 3, 5, 3, 19, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
 ]
 
-# Estados para controle do fluxo da aplicação
+# Estados para controle do fluxo do jogo
 INIT = 0
 PLAYING = 1
 GAME = 2
@@ -99,3 +99,8 @@ PONTUACAO = 5
 DONE = 6
 NOME = 7
 VENCEDOR = 8
+
+# Possíveis estados dos jogadores
+STILL = 9
+JUMPING = 10
+DYING = 11

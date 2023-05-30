@@ -31,12 +31,12 @@ def tela_gameover(screen):
         if i == 0:
             botao_jogo = Botao(assets, "Jogar novamente")
 
-            botao_jogo.rect.centerx = 3*LARG / 10
-            botao_jogo.rect.centery = 2* ALT/3
+            botao_jogo.rect.centerx = 3 * LARG / 10
+            botao_jogo.rect.centery = 2 * ALT / 3
             botoes_gameover.add(botao_jogo)
 
         else:
-            botao_quit = Botao(assets, "QUIT")
+            botao_quit = Botao(assets, "Sair")
 
             botao_quit.rect.centerx = 7 * LARG / 10
             botao_quit.rect.centery = 2 * ALT / 3
@@ -93,10 +93,10 @@ def tela_gameover(screen):
             screen.blit(btn_texto, text_rect)
 
         # Escrevendo texto da tela
-        tela_titulo = assets['font_media'].render("GAMEOVER:", True, BRANCO)
+        tela_titulo = assets['font_media'].render("VOCÊ PERDEU :(", True, BRANCO)
         text_rect = tela_titulo.get_rect()
         text_rect.centerx = LARG / 4
-        text_rect.centery = 100
+        text_rect.centery = 200
         screen.blit(tela_titulo, text_rect)
 
         # Depois de desenhar tudo, inverte o display.
